@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span12">
+			<h2 class="text-center">转帖状态</h2><br>
+		</div><br/><br/>
+		
+        <div align="center">
+        
+        	<li>提交成功:</li>
+        	<table id="status_table"> 
+            	{% for u in result.ok %} 
+                	<tr align="center">
+                    	<td align="center">{{ u }}</td> 
+                    </tr> 
+                {% endfor %} 
+             </table><br/><br/>
+             
+             <li>提交失败:</li>
+             <table id="status_failed"> 
+             	{% for u in result.fail %} 
+                    <tr align="center">
+                        <td align="center">{{ u }}</td> 
+                    </tr> 
+                {% endfor %} 
+            </table><br/><br/>
+            <p><a href="{% url 'repost' %}"><span>返回</span></a></p>
+        </div>
+	</div>
+</div>
+
+
+{% endblock %}
+
+

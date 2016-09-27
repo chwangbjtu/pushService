@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load pagination_tags myTag static %}
+
+{% block content %}
+
+<script>
+	$(document).ready(function() {
+		
+        $("#blacklist-content").load("{% url 'blacklist_politic' %}");
+        document.getElementById('politic').setAttribute("class", "active");
+        
+        $('#copyright').click(function() {
+            $("#blacklist-content").load("{% url 'blacklist_copyright' %}");
+            document.getElementById('copyright').setAttribute("class", "active"); 
+            document.getElementById('politic').setAttribute("class", "");
+        });
+        
+        $('#politic').click(function() {
+            $("#blacklist-content").load("{% url 'blacklist_politic' %}");
+            document.getElementById('politic').setAttribute("class", "active");
+            document.getElementById('copyright').setAttribute("class", ""); 
+        });
+        
+        //add act button click
+        $('#btn-bl-add-act').click(function() {
+            $(".container-fluid").load("{% url 'blacklist_add' %}");
+        });
+        
+    });
+</script>
+
+
+<div class="container-fluid">
+	<div id="tips">
+    </div>
+    
+	<div class="row-fluid">
+		<div class="span12">
+			<ul class="nav nav-tabs">
+				<li id="politic"><a href="#">政治敏感词</a></li>
+				<li id="copyright"><a href="#">版权黑名单</a></li>
+				<li class="dropdown pull-right">
+					<button id="btn-bl-add-act" class="btn btn-primary">新增</button>
+				</li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="blacklist-content">
+    </div>
+    
+</div>
+
+
+{% endblock %}

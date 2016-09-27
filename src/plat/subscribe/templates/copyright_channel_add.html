@@ -1,0 +1,68 @@
+<script>
+    $(document).ready(function() {
+        $('#tips').text('');
+
+        //cancel button click
+        $('form').submit(function () {
+
+            //check field value
+            var field = $.trim($('#site').val());
+            if (field === '0') {
+                $('#tips').text('请选择网站');
+                return false;
+            }
+            field = $.trim($('#user').val());
+            if (field  === '') {
+                $('#tips').text('请填写频道名称');
+                return false;
+            }
+            field = $.trim($('#url').val());
+            if (field === '') {
+                $('#tips').text('请填写URL');
+                return false;
+            }
+
+            //send request
+            $.get($(this).attr('action'), $(this).serialize(), function(data) {
+                var obj = JSON.parse(data);
+                $('#tips').text('添加版权频道结果: ' +  obj.ret);
+                $("#kw-content").load("{% url 'copyright_channel_show' %}");
+            });
+            return false;
+        });
+
+    });
+</script>
+
+<form class="form-horizontal" role="form" action="/api/cc/add/">
+
+	<div class="control-group">
+          <label class="control-label">网站</label>
+          <div class="controls">
+            <select class="input-xlarge" id="site" name="site" onChange="changeChannel()">
+            	<option value="0">--请选择网站--</option>
+            	<option value="1">优酷</option>
+            </select>
+          </div>
+    </div>    	
+    
+    <div class="control-group">
+    	<label class="control-label">频道名称</label>
+        	<div class="controls">
+            	<input type="text" placeholder="请输入有版权限制的频道名称" class="input-xlarge" id="user" name="user">
+            </div>
+    </div>
+    
+    <div class="control-group">
+    	<label class="control-label">频道URL</label>
+        	<div class="controls">
+            	<input type="text" placeholder="请输入频道URL(仅限优酷)" class="input-xlarge" id="url" name="url" >            
+        	</div>
+    </div>
+    
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-primary">添加</button>
+        </div>
+    </div>
+</form>

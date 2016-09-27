@@ -1,0 +1,10 @@
+Build:
+  ./build.sh make
+
+compile jsoncpp
+  need python,scons
+  install scons
+    from http://www.scons.org/download.php
+    tar -xzf scons-xxx.tar.gz
+    cd scons
+    python setup.py install

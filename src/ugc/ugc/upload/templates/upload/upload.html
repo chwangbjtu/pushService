@@ -1,0 +1,226 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Bootstrap, from Twitter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="/static/libs/twitter-bootstrap/2.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+      #main{
+        width:60%;
+        margin: 0 auto;
+      }
+      textarea{
+        width: 500px;
+        height: 70px;
+      }
+
+      .section_progress .progress {
+        margin-left:120px;
+        margin-right: 20px;
+        width:550px;
+        float:left;
+      }
+
+    </style>
+    <link href="/static/libs/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <script  type="text/javascript" src="/static/libs/jquery/jquery-1.9.1.min.js"></script>
+    <script  type="text/javascript" src="/static/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/static/libs/swfupload/swfupload.js"></script>
+    <script type="text/javascript" src="/static/libs/swfupload/plugins/swfupload.cookies.js"></script>
+  	<script type="text/javascript" src="/static/js/handlers.js"></script>
+  	<script type="text/javascript">
+  		var swfu;
+  		window.onload = function () {
+  				swfu = new SWFUpload({
+  					// Backend settings
+  					upload_url: "/upload/upload/",
+  					file_post_name: "video_file",
+
+  					// Flash file settings
+  					file_size_limit : "2 GB",
+  					file_types : "*.*",			// or you could use something like: "*.doc;*.wpd;*.pdf",
+  					file_types_description : "All Files",
+  					file_upload_limit : "0",
+  					file_queue_limit : "1",
+
+  					// Event handler settings
+  					swfupload_loaded_handler : swfUploadLoaded,
+  					
+  					file_dialog_start_handler: fileDialogStart,
+  					file_queued_handler : fileQueued,
+  					file_queue_error_handler : fileQueueError,
+  					file_dialog_complete_handler : fileDialogComplete,
+  					
+  					//upload_start_handler : uploadStart,	// I could do some client/JavaScript validation here, but I don't need to.
+  					upload_progress_handler : uploadProgress,
+  					upload_error_handler : uploadError,
+  					upload_success_handler : uploadSuccess,
+  					upload_complete_handler : uploadComplete,
+
+  					// Button Settings
+  					button_image_url : "/static/img/XPButtonUploadText_61x22.png",
+  					button_placeholder_id : "spanButtonPlaceholder",
+  					button_width: 61,
+  					button_height: 22,
+  					
+  					// Flash Settings
+  					flash_url : "/static/libs/swfupload/swfupload.swf",
+
+  					custom_settings : {
+  						progress_target : "fsUploadProgress",
+  						upload_successful : false
+  					},
+  					
+  					// Debug settings
+  					debug: false
+  				});
+  			};
+  	</script>
+
+    <script type="text/javascript" >
+      function on_upload_finish(){
+        window.location = "/upload/finish_upload";
+      }
+      function on_server_error(err){
+        alert(err);
+        reset();
+      }
+    </script>
+  </head>
+
+  <body>
+    <div id="main">
+      <form class="form-horizontal" id="upload_form" method="POST" enctype="multipart/form-data" action="/upload/upload/" target="hidden_frame">
+        <div class="control-group">
+          <label class="control-label" >视频：</label>
+          <div class="controls">
+      			<input type="text" id="txtFileName" disabled="true" class="span3" />
+      			<span id="spanButtonPlaceholder"></span>
+      			(2 GB max)
+            <font color="red" id="filename_tips"></font>
+		      </div>
+<!--
+          <div class="controls">
+              <input type="file" name="filename">
+              <font color="red" id="filename_tips"></font>
+          </div>
+-->
+        </div>
+        <div class="control-group">
+          <label class="control-label" >标题：</label>
+          <div class="controls">
+              <input type="text" class="span3" name="title">
+              <font color="red" id="title_tips"></font>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" >标签：</label>
+          <div class="controls">
+              <input type="text" class="span3" name="tags" placeholder="以|分割">
+              <font color="red" id="tags_tips"></font>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label">频道：</label>
+          <div class="controls">
+              <select name="channel" class="span3" >
+                <option></option>
+                <option>美女</option>
+                <option>搞笑</option>
+                <option>娱乐</option>
+                <option>游戏</option>
+                <option>体育</option>
+                <option>汽车</option>
+                <option>科技</option>
+                <option>军事</option>
+                <option>音乐</option>
+                <option>生活</option>
+                <option>时尚</option>
+                <option>旅游</option>
+                <option>母婴</option>
+                <option>健康</option>
+                <option>公开课</option>
+                <option>纪录片</option>
+                <option>广告</option>
+                <option>微电影</option>
+                <option>广场舞</option>
+                <option>生活百科</option>
+                <option>电影片花</option>
+                <option>电视片花</option>
+                <option>综艺片花</option>
+                <option>动漫片花</option>
+                <option>片花</option>
+              </select>
+              <font color="red" id="channel_tips"></font>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" >简介：</label>
+          <div class="controls">
+              <textarea name="describe" ></textarea>
+              <font color="red" id="descripiton_tips"></font>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label">优先级：</label>
+          <div class="controls">
+              <select name="priority" class="span3" >
+              {%for priority in priority_list%}
+                <option>{{priority}}</option>
+              {% endfor%}
+              </select>
+              <font color="red" id="channel_tips"></font>
+          </div>
+        </div>
+        
+        <div class="control-group">
+          <label class="control-label">免审：</label>
+          <div class="controls">
+             <input type="radio" name="audit_free" value="yes"> 是&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+             <input type="radio" name="audit_free" value="no" checked> 否<br>
+          </div>
+        </div>
+
+        <div class="section_progress">
+          <div class="progress">
+            <div class="bar" style="width:0%;" id="progressbar"></div>
+          </div>
+          <div>
+            <span id="progress_label"></span>
+          </div>
+        </div>
+
+        <div>
+			<div class="flash" id="fsUploadProgress">
+				<!-- This is where the file progress gets shown.  SWFUpload doesn't update the UI directly.
+							The Handlers (in handlers.js) process the upload events and make the UI updates -->
+			</div>
+			<input type="hidden" name="hidFileID" id="hidFileID" value="" />
+		</div>
+      </form>
+
+      <div class="control-group">
+          <div class="controls" style="float:left;">
+            <button class="btn" id="btn_submit" style="margin-left:100px;" onclick="javascript:void(submit_upload());">上传</button>
+            <button class="btn" id="btn_cancel" style="margin-left:100px;" disabled="disabled" onclick="javascript:void(cancel_submit());">取消上传</button>
+          </div>
+      </div>
+    </div>
+    <div  >
+      <iframe name="hidden_frame" id="hidden_frame" style="display:none"></iframe>
+    </div>
+  </body>
+    
+</html>

@@ -1,0 +1,25 @@
+﻿<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<html>
+	<head>  
+		<title>{{ table["title"] }}</title> 
+	</head>  
+	<body> 
+		<h2>{{ table["title"] }}</h2> 
+        <h3>日期:{{ table["date"] }}</h3>
+        <table border=1 bordercolor=#000000 cellspacing=0 cellpadding=4>
+            <tr>
+                {% for hdr in table["header"] %}
+                    <th bgcolor="#F79646" height="40" align="center"><bold>{{ hdr }}</bold></th>
+                {% end %}
+            </tr>
+            {% for row in table["row"] %}
+                <tr>
+                {% for elem in row %}
+                    <td height="30" align="center">{{ elem }}</td>
+                {% end %}
+                </tr>
+            {% end %}
+        </table>			
+        <h3>待注入视频:{{ table["stashed"] }}</h3>
+	</body>  
+</html> 

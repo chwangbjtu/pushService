@@ -1,0 +1,51 @@
+
+<script>
+    $(document).ready(function() {
+        $('#tips').text('');
+
+        $('form').submit(function () {
+
+            //check field value
+            var field = $.trim($('#bl_word').val());
+            if (field  === '') {
+                $('#tips').text('请填写黑名单');
+                return false;
+            }
+
+            //send request
+            $.get($(this).attr('action'), $(this).serialize(), function(data) {
+                var obj = JSON.parse(data);
+                $('#tips').text('添加黑名单结果: ' +  obj.ret);
+                window.location.href="{% url 'blacklist' %}";
+            });
+            return false;
+        });
+
+    });
+</script>
+
+<form class="form-horizontal" role="form" action="/api/blacklist/add">
+    
+    <div class="control-group">
+          <label class="control-label">黑名单</label>
+          <div class="controls">
+            <input type="text" placeholder="请输入要添加的黑名单" class="input-xlarge" id="bl_word" name="bl_word" >
+          </div>
+    </div>
+    
+    <div class="control-group">
+          <label class="control-label">类型</label>
+          <div class="controls">
+            <select class="input-xlarge" id="bl_type" name="bl_type">
+                <option value="0">政治敏感词</option>
+                <option value="1">版权黑名单</option>
+            </select>
+          </div>
+    </div> 
+    
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-primary">添加</button>
+        </div>
+    </div>
+</form>

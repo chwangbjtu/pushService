@@ -1,0 +1,220 @@
+{% extends "base.html" %}
+{% load pagination_tags myTag %}
+
+{% block content %}
+
+	<script>
+        $(document).ready(function() {
+            $('.form2').submit(function () {
+            	alert($("#submit").text());
+            });
+            $("#content_box").val("{{ content }}");
+            
+            {% for item in classifi_item %}
+            	{% if classifi == item.0 %}
+            		change_classifi_item('{{item.1}}', '{{item.0}}');
+            	{% endif %}
+            {% endfor %}
+            
+            {% for item in order_item %}
+            	{% if order == item.0 %}
+            		change_order_item('{{item.1}}', '{{item.0}}');
+            	{% endif %}
+            {% endfor %}
+           
+            change_cond_item('{{search_item.0.1}}', '{{search_item.0.0}}');
+            {% for item in search_item %}
+            	{% if cond == item.0 %}
+            		change_cond_item('{{item.1}}', '{{item.0}}');
+            	{% endif %}
+            {% endfor %}
+        });
+	</script>
+	<script>
+        function change_classifi_item(content, val)
+        {
+            document.getElementById("classifi_item").innerHTML=content + " <span class=\"caret\"></span>";
+            document.getElementById("classifi_box").value = val
+        }
+        function change_order_item(content, val)
+        {
+            document.getElementById("order_item").innerHTML=content + " <span class=\"caret\"></span>";
+            document.getElementById("order_box").value = val
+        }
+        function change_cond_item(content, val)
+        {
+            document.getElementById("cond_item").innerHTML=content + " <span class=\"caret\"></span>";
+            document.getElementById("cond_box").value = val
+        }
+        function pageCheck()
+        {
+            try {
+                var x=document.getElementById("page_go").value;
+                if(x=="")    throw "值为空";
+                if(isNaN(x)) throw "不是数字";
+                if(x>{{ page_count }})     throw "页数太大";
+                if(x<1)      throw "页数太小";
+            }
+            catch(err) {
+                var y=document.getElementById("err_doc");
+                y.innerHTML="错误：" + err + "。";
+                event.returnvalue=false;
+                return
+            }
+            var classifi = document.getElementById("classifi_box").value;
+            var order = document.getElementById("order_box").value;
+            var cond = document.getElementById("cond_box").value;
+            var content = document.getElementById("content_box").value;
+            location.href = "?page="+x+"&count="+{{count}}+"&classifi="+classifi+"&order="+order+"&cond="+cond+"&content="+content;
+        }
+    </script>
+
+<div class="container-fluid"  id="list">
+	<h2 class="text-center">豆瓣数据列表</h2>
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span6">		
+				<form class='list_form' id='list_form' action="" method="GET">					
+					<div class="btn-group">
+	                    <a class="btn dropdown-toggle" id="classifi_item" data-toggle="dropdown" href="#">
+	                        <span class="caret"></span>
+	                    </a>
+	                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+	                    	{% for item in classifi_item %}	                    	
+	                    		<li><a tabindex="-1" href="javascript:change_classifi_item('{{item.1}}', '{{item.0}}')">{{item.1}}</a></li>
+	                        {% endfor %}
+	                    </ul>
+	                </div>
+	                <input class="text" id='classifi_box' style="display:none" name="classifi" value=""></input>
+		            
+		            <div class="btn-group">
+	                    <a class="btn dropdown-toggle" id="order_item" data-toggle="dropdown" href="#">
+	                        <span class="caret"></span>
+	                    </a>
+	                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+	                    	{% for item in order_item %}	                    	
+	                    		<li><a tabindex="-1" href="javascript:change_order_item('{{item.1}}', '{{item.0}}')">{{item.1}}</a></li>
+	                        {% endfor %}
+	                    </ul>
+	                </div>
+	                <input class="text" id='order_box' style="display:none" name="order" value=""></input>
+	                		            
+		       		<button id="filter" type="submit" class="btn btn-primary">确定</button>
+		   		</form>
+		   	</div>
+		   	
+		   	<div class="span6">
+				<form class="search_form" id="search_form" action="" method="GET">				
+					<div class="btn-group">
+		                <a class="btn dropdown-toggle" id="cond_item" data-toggle="dropdown" href="#">
+		                    <span class="caret"></span>
+		                </a>
+		                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+		                	{% for item in search_item %}	                    	
+		                		<li><a tabindex="-1" href="javascript:change_cond_item('{{item.1}}', '{{item.0}}')">{{item.1}}</a></li>
+		                    {% endfor %}
+		                </ul>
+		            </div>
+	                <input class="text" id="cond_box" style="display:none" name="cond" value=""></input>
+	                <input class="text" id="content_box" name="content" value=""></input>
+	           		<button id="filter" type="submit" class="btn btn-primary">搜索</button>
+	       		</form>
+			</div>
+		</div>
+	</div>
+	
+	<div class="container-fluid">		
+		<fieldset>
+			<table id="keyword-tb" class="table table-hover">
+			    <thead>
+			        <tr>
+			        	<th width="10%">图片</th>
+			            <th width="10%">标题</th>
+			            <th width="7%">分类</th>
+			            <th width="10%">类型</th>
+			            <th width="10%">导演</th>
+			            <th width="23%">演员</th>
+			            <th width="10%">地区</th>
+			            <th width="15%">别名</th>
+			            <th width="5%">评分</th>
+			        </tr>
+			    </thead>
+			    <tbody>
+			        {% for k in video_list %}
+			            <tr>
+				            <form class="form2" role="form2" action="" method="POST">
+				            	<td><img src = "{{ k.mainpic }}"></td>
+				            	<td>
+				            		<input id="border" name="show_id" value="{{ k.show_id }}">
+				            		<a href="{{ k.url }}" target="_blank">{{ k.title }}</a>
+				            	</td>
+				                <td>
+				                	{% set cat = str(k["cat_id"]) %}
+				                	{% for item in category_item %}				                		                	
+				                		{% if item.0 == cat %}
+				                			{{ item.1 }}	 
+				                		{% endif %}
+				                    {% endfor %}
+				                </td>
+				                <td>{{ k.type }}</td>		                
+				                <td>{{ k.director}}</td>
+				                <td>{{ k.actor }}</td>
+				                <td>{{ k.district }}</td>
+				                <td>{{ k.aka }}</td>        
+				                <td>{{ k.score }}</td>        
+				            </form>
+			            </tr>
+			        {% endfor %}
+			    </tbody>
+			</table>
+		</fieldset>	
+		
+        <div>			
+        	<table class="table">
+	            <tbody>
+	                <tr>
+	                    <td>总计<b>{{ video_total }}</b>条, <b>{{ page_count }}</b>页 </td>
+	                    <td>
+	                        <div>
+	                        	第<input class="text span1" id="page_go" name="page" value={{page}} placeholder="几" onkeypress="if(event.keyCode==13||event.which==13){return pageCheck()}">页
+	                            <input id="page_subit" type="button" value="转到" class="btn btn-primary" onclick="pageCheck()"></input>
+	                            <p id="err_doc"></p>
+	                        </div>
+	                    </td>
+	                </tr>
+	            </tbody>
+	        </table>
+        </div>				
+			
+		<div class="pagination pagination-large">
+		    <ul>
+		        {% if page > 1 %}
+		            <li><a href="?page=1&count={{ count }}&classifi={{classifi}}&order={{order}}&cond={{cond}}&content={{content}}">&lt;&lt;</a></li>
+		            <li><a href="?page={{ page|add:-1 }}&count={{count}}&classifi={{classifi}}&order={{order}}&cond={{cond}}&content={{content}}">&lt;</a></li>
+		        {% else %}
+		            <li class="disabled"><a>&lt;&lt;</a> </li>
+		            <li class="disabled"><a>&lt;</a> </li>
+		        {% endif %}
+		
+		        {% for pg in page_list %}
+		            {% if pg == page %}
+		                <li><a class="btn btn-success" href="?page={{pg}}&count={{count}}&classifi={{classifi}}&order={{order}}&cond={{cond}}&content={{content}}">{{pg}}</a></li>
+		            {% else %}
+		                <li><a href="?page={{pg}}&count={{count}}&classifi={{classifi}}&order={{order}}&cond={{cond}}&content={{content}}">{{pg}}</a></li>
+		            {% endif %}
+		        {% endfor %}
+		
+		        {% if page < page_count %}
+		            <li><a href="?page={{ page|add:1 }}&count={{count}}&classifi={{classifi}}&order={{order}}&cond={{cond}}&content={{content}}">&gt;</a></li>
+		            <li><a href="?page={{ page_count }}&count={{count}}&classifi={{classifi}}&order={{order}}&cond={{cond}}&content={{content}}">&gt;&gt;</a></li>
+		        {% else %}
+		            <li class="disabled"><a>&gt;</a></li>
+		            <li class="disabled"><a>&gt;&gt;</a></li>
+		        {% endif %}
+		    </ul>
+		</div>
+	</div>  
+</div>         
+
+
+{% endblock %}

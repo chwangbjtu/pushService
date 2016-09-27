@@ -1,0 +1,15 @@
+#!/usr/bin/python
+# -*- coding:utf-8 -*-
+EXISTS =  1
+NOT_EXISTS = 0
+
+SUCCESS = 1
+FAIL = -1
+
+FORBIDDEN = -2
+
+DOMAINNOTEXISTS = 0
+STARTURLERROR = -2
+
+ERRORPARAM = -3
+WEBGETINVALID = -4

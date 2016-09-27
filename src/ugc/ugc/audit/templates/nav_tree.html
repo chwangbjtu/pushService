@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>风行UGC系统</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="/static/libs/twitter-bootstrap/2.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+    <link href="/static/libs/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet">
+
+    <script src="/static/libs/jquery/jquery-1.9.1.min.js"></script>
+    <script src="/static/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" >
+      var activeLeaf = null;
+      $(function(){
+          $("li").bind("click",function(event){
+            if(this != event.target.parentElement || activeLeaf == this){
+              return;
+            }
+            if(activeLeaf != null){
+              activeLeaf.className = "";
+            }
+            activeLeaf = this;
+            this.className = "active";
+          })
+      })
+    </script>
+  </head>
+
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <a href="/accounts/logout/" target="_top">注销</a>
+          </button>
+          <a class="brand" href="/admin/" target="workspace">欢迎,{{username}}</a>
+        </div>
+      </div>
+    </div>
+    <div class="well sidebar-nav">
+      <ul class="nav nav-list ">
+          <li>
+          </li>
+          {% if can_operate_audit_space %}
+          <li >
+            <a href="./user_all_video" target="workspace">审核空间</a>
+            <ul class="nav nav-list">
+              {% if can_show_audit %}
+                  <li><a href="/show" target="workspace">视频列表</a></li>
+                  <li><a href="/show/unaudit" target="workspace">视频备选</a></li>
+              {% endif %}
+              <li> <a href="/audit/applytask" target="workspace">申请任务</a> </li>
+              <li> <a href="/audit/applytask?site=kkn" target="workspace">申请新闻任务</a> </li>
+              <li><a href="./user_all_video" target="workspace">已申请视频</a></li>
+              <li><a href="./user_pending_video" target="workspace">待审核视频</a></li>
+              <li><a href="./user_passed_video" target="workspace">已通过视频</a></li>
+              <li><a href="./user_failure_video" target="workspace">未通过视频</a></li>
+            </ul>
+          </li>
+          {% endif %}
+
+          {% if can_access_manage_space %}
+          <li>
+            <a href="./user_count" target="workspace">管理空间</a>
+            <ul class="nav nav-list">
+              <li><a href="./user_count" target="workspace">视频计数</a></li>
+              <li><a href="./distribute_video_count" target="workspace">分发视频计数</a></li>
+              <li><a href="./distribute_video_search" target="workspace">分发视频搜索</a></li>
+            </ul>
+          </li>
+          {% endif %}
+
+          {% if can_access_global_space %}
+          <li>
+            <a href="./admin_all_video" target="workspace">所有视频</a>
+            <ul class="nav nav-list">
+              <li><a href="./admin_all_video" target="workspace">所有视频</a></li>
+              <li><a href="./admin_pending_video" target="workspace">所有待审核视频</a></li>
+              <li><a href="./admin_passed_video" target="workspace">所有已通过视频</a></li>
+              <li><a href="./admin_failure_video" target="workspace">所有未通过视频</a></li>
+            </ul>
+          </li>
+          {% endif %}
+
+          <li>
+            <a href="/admin/" target="workspace" >系统设置</a>
+            <ul class="nav nav-list">
+              <li><a href="/admin/password_change/" target="workspace" >修改密码</a></li>
+            </ul>
+          </li>
+
+          {% if can_operate_forwards %}
+          <li>
+            <a href="/forwards" target="workspace">视频转帖</a>
+            <ul class="nav nav-list">
+              <li><a href="/forwards/" target="workspace">转帖</a></li>
+              <li><a href="/forwards/list" target="workspace">转帖空间</a></li>
+            </ul>
+          </li>
+          {% endif %}
+
+          {% if can_operate_upload %}
+          <li>
+            <a href="/upload/" target="workspace">视频上传</a>
+            <ul class="nav nav-list">
+              <li><a href="/upload/" target="workspace">上传</a></li>
+              <li><a href="/upload/upload_list" target="workspace">上传空间</a></li>
+            </ul>
+          </li>
+          {% endif %}
+
+
+		  <li>
+            <a href="/accounts/logout/" target="_top">退出系统</a>
+          </li>
+      </ul>
+    </div>
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    
+
+  </body>
+</html>

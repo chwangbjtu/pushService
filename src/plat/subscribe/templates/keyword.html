@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-fluid">
+	
+    <style type="text/css">
+        #tips {
+            width: 500px;
+            text-align: left;
+            color:red;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function() {
+            $('#tips').text('');
+
+            //load table
+            $("#kw-content").load("{% url 'keyword_show' %}");
+
+        });
+
+    </script>
+
+    <div id="tips">
+    </div>
+
+    <div id="kw-content">
+    </div>
+
+</div>
+
+{% endblock %}

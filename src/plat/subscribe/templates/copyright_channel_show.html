@@ -1,0 +1,70 @@
+{% load static %}
+
+<script>
+    $(document).ready(function() {
+        //cancel button click
+        $('[name=btn-kw-cancel]').click(function(){ 
+            var $key = $(this).closest("tr").find("td:nth-child(2)").text();
+            //call keyword cancel
+            $.ajax({
+                url: "/api/cc/cancel/",
+                type: "GET",
+                data: {
+                    user_name: $key
+                },
+                success: function(data) {
+                    var obj = JSON.parse(data);
+                    alert("result: " + obj.ret);
+                    $('#tips').text('');
+                    $("#kw-content").load("{% url 'copyright_channel_show' %}");
+                },
+                error: function(xhr, textStatus, errorThrown) {
+                    alert("get error");
+                }
+            });
+        });
+
+        //add act button click
+        $('#btn-kw-add-act').click(function() {
+            $("#kw-content").load("{% url 'copyright_channel_add' %}");
+        });
+
+
+    });
+</script>
+
+<div>
+	{% if perms.subscribe.add_copyright_channel %}
+    	<button id="btn-kw-add-act" class="btn btn-primary">添加版权频道</button>
+    {% else %}
+    	<button id="btn-kw-add-act" class="btn" disabled="true">添加版权频道(无权限)</button>
+    {% endif %}
+    <br><br>
+</div>
+
+<table id="keyword-tb" class="table table-hover">
+    <thead>
+        <tr>
+            <th width=10%>序号</th>
+            <th width=30%>版权频道</th>
+            <th width=45%>频道URL</th>
+            <th width=15%>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for cc in copyright_channel %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ cc.user_name }}</td>
+                <td>{{ cc.url}}</td>
+                {% if perms.subscribe.del_copyright_channel %}
+                	<td><button name="btn-kw-cancel" class="btn btn-primary">取消限制</button></td>
+                {% else %}
+                	<td><button name="btn-kw-cancel" class="btn" disabled="true">取消限制(无权限)</button></td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+

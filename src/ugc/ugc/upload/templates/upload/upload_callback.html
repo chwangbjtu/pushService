@@ -1,0 +1,19 @@
+<html>
+<head>
+	<title>隐藏窗体</title>
+	<script type="text/javascript">
+		function on_state(state){
+			if(state==0){
+				parent.on_upload_finish();
+			}else{
+				parent.on_server_error("{{err}}");
+			}
+		}
+	</script>
+</head>
+<body>
+	<script type="text/javascript">
+		on_state({{state}});
+	</script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+{% load static %}
+
+<script>
+    $(document).ready(function() {
+        //cancel button click
+        $('[name=btn-kw-cancel]').click(function(){ 
+            var $key = $(this).closest("tr").find("#keyword").text();
+            //call keyword cancel
+            $.ajax({
+                url: "/api/subscribe/keyword/cancel/",
+                type: "GET",
+                data: {
+                    keyword: $key
+                },
+                success: function(data) {
+                    var obj = JSON.parse(data);
+                    alert("result: " + obj.ret);
+                    $('#tips').text('');
+                    $("#kw-content").load("{% url 'keyword_show' %}");
+                },
+                error: function(xhr, textStatus, errorThrown) {
+                    alert("get error");
+                }
+            });
+        });
+
+        //add act button click
+        $('#btn-kw-add-act').click(function() {
+            $("#kw-content").load("{% url 'keyword_add' %}");
+        });
+
+        //manual button click
+        $('[name=btn-kw-manual]').click(function(){ 
+            var $cat_id = $(this).closest("tr").find("#cat_id").text();
+            var $site = $(this).closest("tr").find("#site").text();
+            var $keyword = $(this).closest("tr").find("#keyword").text();
+            var $user = $(this).closest("tr").find("#user").text();
+            //call keyword manual
+            $.ajax({
+                url: "/api/subscribe/keyword/manual/",
+                type: "GET",
+                data: {
+                    site: $site,
+                    user: $user,
+                    keyword: $keyword,
+                    cat_id: $cat_id
+                },
+                success: function(data) {
+                    var obj = JSON.parse(data);
+                    alert("result: " + obj.ret);
+                },
+                error: function(xhr, textStatus, errorThrown) {
+                    alert("get error");
+                }
+            });
+        });
+    });
+</script>
+
+<div>
+	{% if perms.subscribe.add_keyword %}
+    	<button id="btn-kw-add-act" class="btn btn-primary">添加关键词</button>
+    {% else %}
+    	<button id="btn-kw-add-act" class="btn" disabled="true">添加关键词(无权限)</button>
+    {% endif %}
+    <br><br>
+</div>
+
+<table id="keyword-tb" class="table table-hover">
+    <thead>
+        <tr>
+            <th width=10%>序号</th>
+            <th style="display:none;"></th>
+            <th style="display:none;"></th>
+            <th style="display:none;"></th>
+            <th width=25%>关键词</th>
+            <th width=20%>风行分类</th>
+            <th width=15%>源网站</th>
+            <th width=10%>源网站分类</th>
+            <th width=10%>操作</th>
+            <th width=10%>手动爬取</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for k in keyword %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td style="display:none;" id="keyword">{{ k.id }}|{{ k.keyword }}</td>
+                <td style="display:none;" id="cat_id">{{ k.ext_cat_id}}</td>
+                <td style="display:none;" id="site">{{ k.site_id}}</td>
+                <td>
+                	{{ k.keyword }}
+                	<a href="/subscribe/video?cond=keyword&content={{ k.id }}">
+                		<img src="{% static 'images/jump.png' %}" style="max-height:26px; max-width:26px;"/>
+                	</a>
+                </td>
+                <td>{{ k.user}}</td>
+                <td>{{ k.site_name }}</td>
+                <td id="user">{{ k.cat_name }}</td>
+                <td>
+	                {% if perms.subscribe.delete_keyword %}
+	                	<nobr><button name="btn-kw-cancel" class="btn btn-primary">取消订阅</button></nobr>
+	                {% else %}
+	                	<nobr><button name="btn-kw-cancel" class="btn" disabled="true">取消订阅(无权限)</button></nobr>
+	                {% endif %}
+	            </td>
+                <td>
+                    {% if perms.subscribe.manual_keyword %}
+                        <nobr><button name="btn-kw-manual" class="btn btn-primary">即刻爬取</button><nobr>
+                    {% else %}
+	                	<nobr><button name="btn-kw-manual" class="btn" disabled="true">即刻爬取(无权限)</button></nobr>
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+

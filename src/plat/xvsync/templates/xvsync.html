@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<script>	
+	$(document).ready(function() {
+		$("#content_box").val("{{ search_content }}");
+		
+        //load table
+        $('#mytab a[href="#'+{{channel_id}}+'"]').tab('show'); // 显示点击的tab页面
+        
+        $("#{{channel_id}}").load("{% url 'xv_show' %}", {"channel_id":{{channel_id}}, "page": {{page}}, "cond":'{{search_cond}}',"content":'{{search_content}}',"screen":'{{screen}}'});
+        
+        {% for item in search_item %}
+        	{% if search_cond == item.0 %}
+        		change_cond_item('{{item.1}}', '{{item.0}}');
+        	{% endif %}
+        {% endfor %}
+        
+        {% for item in screen_item %}
+        	{% if screen == item.0 %}
+        		change_screen_item('{{item.1}}', '{{item.0}}');
+        	{% endif %}
+        {% endfor %}
+
+    });
+</script>
+
+<script>
+	function change_cond_item(content, val)
+	{
+		document.getElementById("cond_item").innerHTML=content + " <span class=\"caret\"></span>";
+		document.getElementById("cond_box").value = val
+	}
+	function change_screen_item(content, val)
+	{
+		document.getElementById("screen_item").innerHTML=content + " <span class=\"caret\"></span>";
+		document.getElementById("screen_box").value = val
+	}
+	function showPage(tabId){
+    	$('#'+tabId).html('<br>'+' 页面加载中，请稍后...'); // 设置页面加载时的显示内容
+    	/*
+    	var url = window.location.href; 
+    	alert(url);
+		if (url.indexOf('?') > -1){
+		   url += '&channel_id='+tabId
+		}else{
+		   url += '?channel_id='+tabId
+		}
+		window.location.href = url;
+		*/
+		var cont = '{{search_content}}';
+		var x=document.getElementById("{{channel_id}}_page_go").value;
+		window.location.href = "/xvsync/xvsync?channel_id="+tabId+"&content="+cont+"&screen="+{{screen}};
+	}
+
+</script>
+    
+<div class="container-fluid">		
+	<h2 class="text-center">长视频空间</h2>	
+	
+	<div class="container-fluid">	
+	
+		<div class="row-fluid">
+			<form id='list_form' action="" method="GET">
+				<div class="span6">
+					<div class="btn-group">
+	                    <a class="btn dropdown-toggle" id="screen_item" data-toggle="dropdown" href="#">
+	                        <span class="caret"></span>
+	                    </a>
+	                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+	                    	{% for item in screen_item %}	                    	
+	                    		<li><a tabindex="-1" href="javascript:change_screen_item('{{item.1}}', '{{item.0}}')">{{item.1}}</a></li>
+	                        {% endfor %}
+	                    </ul>
+	                </div>
+	                <input class="text" id='screen_box' style="display:none" name="screen" value=""></input>
+	           		<button id="filter" type="submit" class="btn btn-primary">确定</button>
+				</div>	
+			
+				<div class="span6">
+					<div class="btn-group">
+	                    <a class="btn dropdown-toggle" id="cond_item" data-toggle="dropdown" href="#">选择
+	                        <span class="caret"></span>
+	                    </a>
+	                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+	                    	{% for item in search_item %}	                    	
+	                    		<li><a tabindex="-1" href="javascript:change_cond_item('{{item.1}}', '{{item.0}}')">{{item.1}}</a></li>
+	                        {% endfor %}
+	                    </ul>
+	                </div>
+	                <input class="text" id='cond_box' style="display:none" name="cond" value=""></input>
+	                <input class="text" id='content_box' name="content" value=""></input>
+	           		<button id="filter" type="submit" class="btn btn-primary">搜索</button>
+				</div>
+			</form><br/>
+		</div>
+	        
+        <div class="tabbable" id="tabs">
+			<ul class="nav nav-tabs" id="mytab">
+				<li class="active"><a href="#2001" onclick='showPage("2001")'>电影</a></li>
+				<li><a href="#2002" onclick='showPage("2002")'>电视剧</a></li>
+				<li><a href="#2004" onclick='showPage("2004")'>综艺</a></li>
+				<li><a href="#2003" onclick='showPage("2003")'>动漫</a></li>
+			</ul>
+			
+			<div class="tab-content">
+				<div class="tab-pane active" id="2001">
+				</div>
+				<div class="tab-pane" id="2002">
+				</div>
+				<div class="tab-pane" id="2004">
+				</div>
+				<div class="tab-pane" id="2003">
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+	
+
+{% endblock %}

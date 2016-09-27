@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	    <meta charset="utf-8">
+	    <title>风行爬虫管理系统</title>
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <meta name="description" content="">
+	    <meta name="author" content="">
+	
+	    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+		<link rel="stylesheet" href="{% static 'css/bootstrap-responsive.min.css' %}">
+		<link rel="shortcut icon" href="{% static 'images/logo.png' %}">
+	    <style>
+	      body {
+	        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+	      }
+	    </style>
+
+	</head>
+
+	<frameset cols="20%,*">
+		<frame src="/subscribe/navtree">
+		<frame src="/subscribe/welcome" name="workspace">
+	</frameset>
+
+</html>

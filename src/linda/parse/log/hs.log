@@ -1,0 +1,650 @@
+[D 151221 10:53:49 http_server:45] start http server: 10990
+[D 151221 10:53:58 http_server:18] GET helper api: parse
+[I 151221 10:53:59 web:1908] 200 GET /helper?api=parse&url=http://www.tudou.com/programs/view/9AZdcsp30WI/ (192.168.144.137) 168.56ms
+[W 151221 10:53:59 web:1908] 404 GET /favicon.ico (192.168.144.137) 0.46ms
+[D 151221 11:00:24 http_server:45] start http server: 10990
+[D 151221 11:00:29 http_server:18] GET helper api: parse
+[I 151221 11:00:29 web:1908] 200 GET /helper?api=parse&url=http://www.tudou.com/programs/view/9AZdcsp30WI/ (192.168.144.137) 337.89ms
+[D 151221 11:01:24 http_server:45] start http server: 10990
+[D 151221 11:01:27 http_server:18] GET helper api: parse
+[I 151221 11:01:27 web:1908] 304 GET /helper?api=parse&url=http://www.tudou.com/programs/view/9AZdcsp30WI/ (192.168.144.137) 109.95ms
+[D 151221 11:03:54 http_server:45] start http server: 10990
+[D 151221 11:04:01 http_server:18] GET helper api: parse
+[I 151221 11:04:01 web:1908] 200 GET /helper?api=parse&url=http://www.tudou.com/programs/view/9AZdcsp30WI/ (192.168.144.137) 93.98ms
+[D 151221 11:07:38 http_server:45] start http server: 10990
+[D 151221 11:07:43 http_server:18] GET helper api: parse
+[I 151221 11:07:43 web:1908] 200 GET /helper?api=parse&url=http://www.tudou.com/programs/view/9AZdcsp30WI/ (192.168.144.137) 120.40ms
+[D 151221 11:07:46 http_server:18] GET helper api: parse
+[I 151221 11:07:46 web:1908] 304 GET /helper?api=parse&url=http://www.tudou.com/programs/view/9AZdcsp30WI/ (192.168.144.137) 106.67ms
+[D 151221 11:10:44 http_server:45] start http server: 10990
+[D 151221 11:10:52 http_server:18] GET helper api: parse
+[I 151221 11:10:52 web:1908] 200 GET /helper?api=parse&url=http://www.tudou.com/programs/view/XuyOj8jwslU/ (192.168.144.137) 166.84ms
+[D 151221 11:11:18 http_server:18] GET helper api: parse
+[I 151221 11:11:18 web:1908] 304 GET /helper?api=parse&url=http://www.tudou.com/programs/view/XuyOj8jwslU/ (192.168.144.137) 87.81ms
+[D 151221 11:15:06 http_server:45] start http server: 10990
+[D 151221 11:15:23 http_server:18] GET helper api: parse
+[I 151221 11:15:23 web:1908] 200 GET /helper?api=parse&url=http://www.iqiyi.com/w_19rt6zhkv1.html (192.168.144.137) 338.32ms
+[D 151221 11:16:51 http_server:45] start http server: 10990
+[D 151221 11:16:55 http_server:18] GET helper api: parse
+[I 151221 11:16:55 web:1908] 200 GET /helper?api=parse&url=http://www.iqiyi.com/w_19rt6zhkv1.html (192.168.144.137) 94.08ms
+[D 151221 11:29:30 http_server:45] start http server: 10990
+[D 151221 11:29:43 http_server:18] GET helper api: parse
+[I 151221 11:29:43 web:1908] 200 GET /helper?api=parse&url=http://www.iqiyi.com/v_19rrkhovso.html (192.168.144.137) 111.99ms
+[D 151221 11:31:16 http_server:45] start http server: 10990
+[D 151221 11:31:27 http_server:18] GET helper api: parse
+[I 151221 11:31:28 web:1908] 200 GET /helper?api=parse&url=http://www.56.com/w50/play_album-aid-14294952_vid-MTM5ODUyNjY0.html (192.168.144.137) 862.93ms
+[D 151221 11:33:05 http_server:45] start http server: 10990
+[D 151221 11:33:11 http_server:18] GET helper api: parse
+[I 151221 11:33:13 web:1908] 200 GET /helper?api=parse&url=http://www.56.com/w50/play_album-aid-14294952_vid-MTM5ODUyNjY0.html (192.168.144.137) 1581.40ms
+[D 151221 11:39:15 http_server:45] start http server: 10990
+[D 151221 11:39:32 http_server:18] GET helper api: parse
+[I 151221 11:39:32 web:1908] 304 GET /helper?api=parse&url=http://www.tudou.com/programs/view/9AZdcsp30WI/ (192.168.144.137) 157.88ms
+[D 151221 11:39:51 http_server:18] GET helper api: parse
+[I 151221 11:39:51 web:1908] 304 GET /helper?api=parse&url=http://www.tudou.com/programs/view/XuyOj8jwslU/ (192.168.144.137) 125.27ms
+[D 151221 11:40:03 http_server:18] GET helper api: parse
+[I 151221 11:40:03 web:1908] 200 GET /helper?api=parse&url=http://v.youku.com/v_show/id_XMTQxNjU5NDU5Ng==.html?f=26389891&from=y1.3-news-newgrid-123-10079.88552-88545.1-1 (192.168.144.137) 185.45ms
+[D 151221 11:40:17 http_server:18] GET helper api: parse
+[I 151221 11:40:17 web:1908] 200 GET /helper?api=parse&url=http://v.youku.com/v_show/id_XMTQxNTI0NzcxMg==.html?from=y1.3-news-newgrid-123-10079.90251-90237.3-1 (192.168.144.137) 415.45ms
+[D 151221 11:40:30 http_server:18] GET helper api: parse
+[I 151221 11:40:30 web:1908] 200 GET /helper?api=parse&url=http://v.ku6.com/show/gwfFKmzKlF1rqyx3z-yTew...html?hpsrc=1_25_1_1_0 (192.168.144.137) 430.71ms
+[D 151221 11:40:41 http_server:18] GET helper api: parse
+[I 151221 11:40:41 web:1908] 304 GET /helper?api=parse&url=http://www.iqiyi.com/w_19rt6zhkv1.html (192.168.144.137) 99.07ms
+[D 151221 11:40:57 http_server:18] GET helper api: parse
+[I 151221 11:40:57 web:1908] 304 GET /helper?api=parse&url=http://www.iqiyi.com/v_19rrkhovso.html (192.168.144.137) 63.65ms
+[D 151221 11:41:11 http_server:18] GET helper api: parse
+[I 151221 11:41:11 web:1908] 200 GET /helper?api=parse&url=http://www.56.com/u77/v_MTM5ODU4MDI2.html (192.168.144.137) 348.79ms
+[D 151221 11:41:24 http_server:18] GET helper api: parse
+[I 151221 11:41:25 web:1908] 304 GET /helper?api=parse&url=http://www.56.com/u77/v_MTM5ODU4MDI2.html (192.168.144.137) 899.19ms
+[D 151221 11:41:36 http_server:18] GET helper api: parse
+[I 151221 11:41:37 web:1908] 304 GET /helper?api=parse&url=http://www.56.com/u77/v_MTM5ODU4MDI2.html (192.168.144.137) 550.49ms
+[D 151221 11:43:54 http_server:45] start http server: 10990
+[D 151221 11:43:58 http_server:18] GET helper api: parse
+[I 151221 11:43:58 web:1908] 304 GET /helper?api=parse&url=http://www.56.com/u77/v_MTM5ODU4MDI2.html (192.168.144.137) 302.20ms
+[D 151221 11:44:01 http_server:18] GET helper api: parse
+[I 151221 11:44:01 web:1908] 304 GET /helper?api=parse&url=http://www.56.com/u77/v_MTM5ODU4MDI2.html (192.168.144.137) 368.19ms
+[D 151221 11:47:28 http_server:45] start http server: 10990
+[D 151221 11:47:31 http_server:18] GET helper api: parse
+[I 151221 11:47:32 web:1908] 304 GET /helper?api=parse&url=http://www.56.com/u77/v_MTM5ODU4MDI2.html (192.168.144.137) 441.03ms
+[D 151221 11:48:40 http_server:45] start http server: 10990
+[D 151221 11:48:42 http_server:18] GET helper api: parse
+[I 151221 11:48:43 web:1908] 200 GET /helper?api=parse&url=http://www.56.com/u77/v_MTM5ODU4MDI2.html (192.168.144.137) 468.49ms
+[D 151221 11:48:55 http_server:45] start http server: 10990
+[D 151221 11:49:21 http_server:45] start http server: 10990
+[D 151221 11:49:24 http_server:18] GET helper api: parse
+[I 151221 11:49:25 web:1908] 200 GET /helper?api=parse&url=http://www.56.com/u77/v_MTM5ODU4MDI2.html (192.168.144.137) 814.17ms
+[D 151221 11:52:35 http_server:45] start http server: 10990
+[D 151221 11:52:50 http_server:18] GET helper api: parse
+[I 151221 11:52:50 web:1908] 200 GET /helper?api=parse&url=http://www.tudou.com/programs/view/9AZdcsp30WI/ (192.168.144.137) 121.04ms
+[D 151221 14:17:36 http_server:18] GET helper api: parse
+[I 151221 14:17:36 web:1908] 200 GET /helper?api=parse&url=http://www.56.com/w50/play_album-aid-14294952_vid-MTM5ODUyNjY0.html (192.168.144.137) 659.03ms
+[W 151221 14:17:36 web:1908] 404 GET /favicon.ico (192.168.144.137) 0.69ms
+[D 151221 14:18:12 http_server:18] GET helper api: parse
+[I 151221 14:18:13 web:1908] 304 GET /helper?api=parse&url=http://www.56.com/u77/v_MTM5ODU4MDI2.html (192.168.144.137) 281.07ms
+[D 151221 14:18:25 http_server:18] GET helper api: parse
+[I 151221 14:18:25 web:1908] 200 GET /helper?api=parse&url=http://www.iqiyi.com/w_19rs2z29g1.html (192.168.144.137) 75.82ms
+[D 151221 14:37:27 http_server:45] start http server: 10990
+[D 151221 14:37:30 http_server:18] GET helper api: parse
+[I 151221 14:37:30 web:1908] 200 GET /helper?api=parse&url=http://www.iqiyi.com/v_19rrnr18nc.html (192.168.144.137) 81.48ms
+[D 151221 14:51:10 http_server:18] GET helper api: parse
+[I 151221 14:51:10 web:1908] 304 GET /helper?api=parse&url=http://www.iqiyi.com/v_19rrnr18nc.html (192.168.144.137) 42.06ms
+[D 151221 18:43:12 http_server:45] start http server: 10990
+[E 151223 11:37:47 server:41] Traceback (most recent call last):
+      File "server.py", line 37, in start
+        self.register_module()
+      File "server.py", line 18, in register_module
+        http_server = HttpServer(Conf.server_port)
+      File "/home/wangchao/odin/src/linda/parse/http_server.py", line 35, in __init__
+        (r"/parse", HelperHandler, parse()),
+    NameError: global name 'parse' is not defined
+    
+[D 151223 11:38:41 http_server:46] start http server: 10990
+[E 151223 11:39:14 http1connection:54] Uncaught exception
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/site-packages/tornado/http1connection.py", line 238, in _read_message
+        delegate.finish()
+      File "/usr/local/lib/python2.7/site-packages/tornado/httpserver.py", line 290, in finish
+        self.delegate.finish()
+      File "/usr/local/lib/python2.7/site-packages/tornado/web.py", line 1984, in finish
+        self.execute()
+      File "/usr/local/lib/python2.7/site-packages/tornado/web.py", line 2004, in execute
+        **self.handler_kwargs)
+    TypeError: type object argument after ** must be a mapping, not parse
+[E 151223 11:39:14 http1connection:54] Uncaught exception
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/site-packages/tornado/http1connection.py", line 238, in _read_message
+        delegate.finish()
+      File "/usr/local/lib/python2.7/site-packages/tornado/httpserver.py", line 290, in finish
+        self.delegate.finish()
+      File "/usr/local/lib/python2.7/site-packages/tornado/web.py", line 1984, in finish
+        self.execute()
+      File "/usr/local/lib/python2.7/site-packages/tornado/web.py", line 2004, in execute
+        **self.handler_kwargs)
+    TypeError: type object argument after ** must be a mapping, not parse
+[E 151223 11:39:14 http1connection:54] Uncaught exception
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/site-packages/tornado/http1connection.py", line 238, in _read_message
+        delegate.finish()
+      File "/usr/local/lib/python2.7/site-packages/tornado/httpserver.py", line 290, in finish
+        self.delegate.finish()
+      File "/usr/local/lib/python2.7/site-packages/tornado/web.py", line 1984, in finish
+        self.execute()
+      File "/usr/local/lib/python2.7/site-packages/tornado/web.py", line 2004, in execute
+        **self.handler_kwargs)
+    TypeError: type object argument after ** must be a mapping, not parse
+[E 151223 11:39:17 http1connection:54] Uncaught exception
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/site-packages/tornado/http1connection.py", line 238, in _read_message
+        delegate.finish()
+      File "/usr/local/lib/python2.7/site-packages/tornado/httpserver.py", line 290, in finish
+        self.delegate.finish()
+      File "/usr/local/lib/python2.7/site-packages/tornado/web.py", line 1984, in finish
+        self.execute()
+      File "/usr/local/lib/python2.7/site-packages/tornado/web.py", line 2004, in execute
+        **self.handler_kwargs)
+    TypeError: type object argument after ** must be a mapping, not parse
+[E 151223 11:39:17 http1connection:54] Uncaught exception
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/site-packages/tornado/http1connection.py", line 238, in _read_message
+        delegate.finish()
+      File "/usr/local/lib/python2.7/site-packages/tornado/httpserver.py", line 290, in finish
+        self.delegate.finish()
+      File "/usr/local/lib/python2.7/site-packages/tornado/web.py", line 1984, in finish
+        self.execute()
+      File "/usr/local/lib/python2.7/site-packages/tornado/web.py", line 2004, in execute
+        **self.handler_kwargs)
+    TypeError: type object argument after ** must be a mapping, not parse
+[E 151223 11:39:22 http1connection:54] Uncaught exception
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/site-packages/tornado/http1connection.py", line 238, in _read_message
+        delegate.finish()
+      File "/usr/local/lib/python2.7/site-packages/tornado/httpserver.py", line 290, in finish
+        self.delegate.finish()
+      File "/usr/local/lib/python2.7/site-packages/tornado/web.py", line 1984, in finish
+        self.execute()
+      File "/usr/local/lib/python2.7/site-packages/tornado/web.py", line 2004, in execute
+        **self.handler_kwargs)
+    TypeError: type object argument after ** must be a mapping, not parse
+[E 151223 11:39:52 http1connection:54] Uncaught exception
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/site-packages/tornado/http1connection.py", line 238, in _read_message
+        delegate.finish()
+      File "/usr/local/lib/python2.7/site-packages/tornado/httpserver.py", line 290, in finish
+        self.delegate.finish()
+      File "/usr/local/lib/python2.7/site-packages/tornado/web.py", line 1984, in finish
+        self.execute()
+      File "/usr/local/lib/python2.7/site-packages/tornado/web.py", line 2004, in execute
+        **self.handler_kwargs)
+    TypeError: type object argument after ** must be a mapping, not parse
+[E 151223 11:40:21 http1connection:54] Uncaught exception
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/site-packages/tornado/http1connection.py", line 238, in _read_message
+        delegate.finish()
+      File "/usr/local/lib/python2.7/site-packages/tornado/httpserver.py", line 290, in finish
+        self.delegate.finish()
+      File "/usr/local/lib/python2.7/site-packages/tornado/web.py", line 1984, in finish
+        self.execute()
+      File "/usr/local/lib/python2.7/site-packages/tornado/web.py", line 2004, in execute
+        **self.handler_kwargs)
+    TypeError: type object argument after ** must be a mapping, not parse
+[E 151223 11:40:21 http1connection:54] Uncaught exception
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/site-packages/tornado/http1connection.py", line 238, in _read_message
+        delegate.finish()
+      File "/usr/local/lib/python2.7/site-packages/tornado/httpserver.py", line 290, in finish
+        self.delegate.finish()
+      File "/usr/local/lib/python2.7/site-packages/tornado/web.py", line 1984, in finish
+        self.execute()
+      File "/usr/local/lib/python2.7/site-packages/tornado/web.py", line 2004, in execute
+        **self.handler_kwargs)
+    TypeError: type object argument after ** must be a mapping, not parse
+[D 151223 11:45:48 http_server:46] start http server: 10990
+[W 151223 11:45:52 web:1908] 404 GET /parse?url=http%3a%2f%2fwww.iqiyi.com%2fv_19rrolm54g.html (192.168.144.137) 2.16ms
+[D 151223 11:46:23 http_server:46] start http server: 10990
+[D 151223 11:46:25 http_server:19] GET helper api: parse
+[I 151223 11:46:25 web:1908] 200 GET /parse?url=http%3a%2f%2fwww.iqiyi.com%2fv_19rrolm54g.html (192.168.144.137) 69.28ms
+[D 151223 15:29:21 http_server:46] start http server: 10990
+[D 151223 15:29:30 http_server:19] GET helper api: parse
+[I 151223 15:29:30 web:1908] 200 GET /parse?url=http%3a%2f%2fwww.iqiyi.com%2fv_19rrolm54g.html (192.168.144.137) 82.90ms
+[D 151223 15:30:14 http_server:19] GET helper api: parse
+[I 151223 15:30:14 web:1908] 200 GET /parse?url=http://tool.chinaz.com/Tools/URLEncode.aspx (192.168.144.137) 1.43ms
+[D 160408 13:48:14 http_server:46] start http server: 10990
+[D 160408 13:49:34 http_server:19] GET helper api: parse
+[I 160408 13:49:34 web:1908] 200 GET /parse?url=http://www.tucao.tv/play/h4060844/ (192.168.28.252) 3.50ms
+[W 160408 13:49:34 web:1908] 404 GET /favicon.ico (192.168.28.252) 0.60ms
+[D 160408 13:49:39 http_server:19] GET helper api: parse
+[I 160408 13:49:39 web:1908] 304 GET /parse?url=http://www.tucao.tv/play/h4060844/ (192.168.28.252) 1.29ms
+[D 160408 13:52:35 http_server:46] start http server: 10990
+[D 160408 13:52:41 http_server:19] GET helper api: parse
+[I 160408 13:52:42 web:1908] 200 GET /parse?url=http://www.tucao.tv/play/h4060844/ (192.168.28.252) 887.04ms
+[D 160408 13:53:17 http_server:19] GET helper api: parse
+[I 160408 13:53:18 web:1908] 304 GET /parse?url=http://www.tucao.tv/play/h4060844/ (192.168.28.252) 251.55ms
+[D 160408 13:53:22 http_server:19] GET helper api: parse
+[I 160408 13:53:22 web:1908] 304 GET /parse?url=http://www.tucao.tv/play/h4060844/ (192.168.28.252) 309.80ms
+[D 160408 13:53:41 http_server:19] GET helper api: parse
+[I 160408 13:53:41 web:1908] 200 GET /parse?url=http://www.tucao.tv/play/h4062926/ (192.168.28.252) 141.92ms
+[D 160408 13:54:33 http_server:46] start http server: 10990
+[D 160408 13:54:37 http_server:19] GET helper api: parse
+[I 160408 13:54:37 web:1908] 304 GET /parse?url=http://www.tucao.tv/play/h4062926/ (192.168.28.252) 350.23ms
+[D 160408 13:55:36 http_server:46] start http server: 10990
+[D 160408 13:55:50 http_server:19] GET helper api: parse
+[I 160408 13:55:50 web:1908] 200 GET /parse?url=http://www.tucao.tv/play/h4060844/ (192.168.28.252) 326.51ms
+[D 160408 13:55:55 http_server:19] GET helper api: parse
+[I 160408 13:55:56 web:1908] 304 GET /parse?url=http://www.tucao.tv/play/h4060844/ (192.168.28.252) 998.63ms
+[D 160408 13:56:51 http_server:46] start http server: 10990
+[D 160408 13:56:55 http_server:19] GET helper api: parse
+[I 160408 13:56:56 web:1908] 200 GET /parse?url=http://www.tucao.tv/play/h4060844/ (192.168.28.252) 1682.79ms
+[D 160408 14:03:29 http_server:46] start http server: 10990
+[D 160408 14:03:34 http_server:19] GET helper api: parse
+[I 160408 14:03:35 web:1908] 200 GET /parse?url=http://www.tucao.tv/play/h4060844/ (192.168.28.252) 678.05ms
+[D 160408 14:34:17 http_server:46] start http server: 10990
+[D 160408 14:34:50 http_server:19] GET helper api: parse
+[I 160408 14:34:50 web:1908] 200 GET /parse?url=www.v1.cn/2016-04-07/2348109.shtml (192.168.28.252) 4.75ms
+[D 160408 14:38:26 http_server:46] start http server: 10990
+[D 160408 14:38:30 http_server:19] GET helper api: parse
+[I 160408 14:38:30 web:1908] 304 GET /parse?url=www.v1.cn/2016-04-07/2348109.shtml (192.168.28.252) 3.33ms
+[D 160408 14:38:36 http_server:19] GET helper api: parse
+[I 160408 14:38:36 web:1908] 304 GET /parse?url=www.v1.cn/2016-04-07/2348109.shtml (192.168.28.252) 1.68ms
+[D 160408 14:40:34 http_server:46] start http server: 10990
+[D 160408 14:40:39 http_server:19] GET helper api: parse
+[I 160408 14:40:39 web:1908] 304 GET /parse?url=www.v1.cn/2016-04-07/2348109.shtml (192.168.28.252) 3.48ms
+[D 160408 14:40:53 http_server:19] GET helper api: parse
+[I 160408 14:40:54 web:1908] 200 GET /parse?url=http://www.v1.cn/2016-04-07/2348109.shtml (192.168.28.252) 715.45ms
+[D 160408 14:42:20 http_server:46] start http server: 10990
+[D 160408 14:42:25 http_server:19] GET helper api: parse
+[I 160408 14:42:26 web:1908] 200 GET /parse?url=http://www.v1.cn/2016-04-07/2348109.shtml (192.168.28.252) 597.07ms
+[D 160408 14:42:41 http_server:19] GET helper api: parse
+[I 160408 14:42:41 web:1908] 200 GET /parse?url=http://www.v1.cn/2016-04-04/2345979.shtml (192.168.28.252) 446.58ms
+[D 160408 14:43:13 http_server:19] GET helper api: parse
+[I 160408 14:43:13 web:1908] 200 GET /parse?url=http://v.ifeng.com/news/society/201604/01e6fb41-ed14-4332-8899-39fc504c72d0.shtml (192.168.28.252) 143.99ms
+[D 160408 14:53:12 http_server:19] GET helper api: parse
+[I 160408 14:53:12 web:1908] 200 GET /parse?url=http://www.acfun.tv/v/ac2654448 (192.168.28.252) 760.56ms
+[D 160408 14:55:59 http_server:19] GET helper api: parse
+[I 160408 14:56:00 web:1908] 304 GET /parse?url=http://www.acfun.tv/v/ac2654448 (192.168.28.252) 817.23ms
+[D 160408 14:56:31 http_server:19] GET helper api: parse
+[I 160408 14:56:31 web:1908] 200 GET /parse?url=http://www.bilibili.com/video/av4304496/ (192.168.28.252) 639.11ms
+[D 160408 14:56:35 http_server:19] GET helper api: parse
+[I 160408 14:56:35 web:1908] 304 GET /parse?url=http://www.bilibili.com/video/av4304496/ (192.168.28.252) 72.92ms
+[D 160408 14:58:33 http_server:46] start http server: 10990
+[D 160408 14:58:33 http_server:19] GET helper api: parse
+[I 160408 14:58:34 web:1908] 304 GET /parse?url=http://www.bilibili.com/video/av4304496/ (192.168.28.252) 620.60ms
+[D 160408 14:58:39 http_server:19] GET helper api: parse
+[I 160408 14:58:39 web:1908] 304 GET /parse?url=http://www.bilibili.com/video/av4304496/ (192.168.28.252) 82.84ms
+[D 160408 15:03:35 http_server:46] start http server: 10990
+[D 160408 15:03:38 http_server:19] GET helper api: parse
+[I 160408 15:03:39 web:1908] 200 GET /parse?url=http://www.acfun.tv/v/ac2649794 (192.168.28.252) 1512.28ms
+[D 160408 15:33:18 http_server:46] start http server: 10990
+[D 160408 15:33:34 http_server:19] GET helper api: parse
+[I 160408 15:33:34 web:1908] 200 GET /parse?url=http://www.bilibili.com/video/av4304496/ (192.168.28.252) 112.37ms
+[D 160408 15:33:49 http_server:19] GET helper api: parse
+[I 160408 15:33:49 web:1908] 200 GET /parse?url=http://www.acfun.tv/v/ac2653679 (192.168.28.252) 249.33ms
+[D 160408 15:35:36 http_server:46] start http server: 10990
+[D 160408 15:35:41 http_server:19] GET helper api: parse
+[I 160408 15:35:41 web:1908] 304 GET /parse?url=http://www.acfun.tv/v/ac2653679 (192.168.28.252) 731.34ms
+[D 160408 15:35:46 http_server:19] GET helper api: parse
+[I 160408 15:35:47 web:1908] 304 GET /parse?url=http://www.acfun.tv/v/ac2653679 (192.168.28.252) 681.66ms
+[D 160408 15:35:55 http_server:19] GET helper api: parse
+[I 160408 15:35:55 web:1908] 304 GET /parse?url=http://www.acfun.tv/v/ac2653679 (192.168.28.252) 718.88ms
+[D 160408 15:36:57 http_server:46] start http server: 10990
+[D 160408 15:37:01 http_server:19] GET helper api: parse
+[I 160408 15:37:02 web:1908] 304 GET /parse?url=http://www.acfun.tv/v/ac2653679 (192.168.28.252) 841.01ms
+[D 160411 09:53:41 http_server:46] start http server: 10990
+[D 160411 09:53:56 http_server:19] GET helper api: parse
+[I 160411 09:53:58 web:1908] 304 GET /parse?url=http://www.tucao.tv/play/h4060844/ (192.168.28.252) 2458.93ms
+[D 160413 10:22:50 http_server:46] start http server: 10990
+[D 160413 10:23:11 http_server:19] GET helper api: parse
+[I 160413 10:23:13 web:1908] 304 GET /parse?url=http://www.tucao.tv/play/h4060844/ (192.168.28.252) 1974.99ms
+[W 160413 10:23:13 web:1908] 404 GET /favicon.ico (192.168.28.252) 0.66ms
+[D 160413 10:23:26 http_server:19] GET helper api: parse
+[I 160413 10:23:26 web:1908] 200 GET /parse?url=http://www.acfun.tv/v/ac2665013 (192.168.28.252) 716.37ms
+[D 160413 10:24:50 http_server:46] start http server: 10990
+[D 160413 10:24:54 http_server:19] GET helper api: parse
+[I 160413 10:24:55 web:1908] 304 GET /parse?url=http://www.acfun.tv/v/ac2665013 (192.168.28.252) 293.52ms
+[D 160413 10:25:51 http_server:19] GET helper api: parse
+[I 160413 10:25:52 web:1908] 304 GET /parse?url=http://www.acfun.tv/v/ac2665013 (192.168.28.252) 984.21ms
+[D 160413 10:27:53 http_server:19] GET helper api: parse
+[I 160413 10:27:54 web:1908] 200 GET /parse?url=http://www.bilibili.com/video/av4305382/ (192.168.28.252) 1154.26ms
+[D 160413 10:30:01 http_server:46] start http server: 10990
+[D 160413 10:30:05 http_server:19] GET helper api: parse
+[I 160413 10:30:06 web:1908] 200 GET /parse?url=http://www.bilibili.com/video/av4305382/ (192.168.28.252) 627.88ms
+[D 160413 10:30:10 http_server:19] GET helper api: parse
+[I 160413 10:30:10 web:1908] 304 GET /parse?url=http://www.bilibili.com/video/av4305382/ (192.168.28.252) 49.67ms
+[D 160413 10:36:00 http_server:46] start http server: 10990
+[D 160413 10:36:03 http_server:19] GET helper api: parse
+[I 160413 10:36:04 web:1908] 200 GET /parse?url=http://www.bilibili.com/video/av4305382/ (192.168.28.252) 1245.42ms
+[D 160413 10:36:21 http_server:19] GET helper api: parse
+[I 160413 10:36:21 web:1908] 200 GET /parse?url=http://www.bilibili.com/video/av4348218/ (192.168.28.252) 139.83ms
+[D 160413 10:44:29 http_server:46] start http server: 10990
+[D 160413 10:44:34 http_server:19] GET helper api: parse
+[I 160413 10:44:35 web:1908] 200 GET /parse?url=http://www.bilibili.com/video/av4348218/ (192.168.28.252) 768.80ms
+[D 160413 10:47:51 http_server:19] GET helper api: parse
+[I 160413 10:47:53 web:1908] 200 GET /parse?url=http://www.acfun.tv/v/ac2654685 (192.168.28.252) 1703.44ms
+[D 160413 10:49:53 http_server:46] start http server: 10990
+[D 160413 10:49:59 http_server:19] GET helper api: parse
+[I 160413 10:50:00 web:1908] 304 GET /parse?url=http://www.acfun.tv/v/ac2654685 (192.168.28.252) 175.35ms
+[D 160413 10:50:05 http_server:19] GET helper api: parse
+[I 160413 10:50:06 web:1908] 304 GET /parse?url=http://www.acfun.tv/v/ac2654685 (192.168.28.252) 726.75ms
+[D 160413 10:53:35 http_server:46] start http server: 10990
+[D 160413 10:53:39 http_server:19] GET helper api: parse
+[I 160413 10:53:39 web:1908] 304 GET /parse?url=http://www.acfun.tv/v/ac2654685 (192.168.28.252) 151.00ms
+[D 160413 10:59:36 http_server:19] GET helper api: parse
+[I 160413 10:59:37 web:1908] 304 GET /parse?url=http://www.acfun.tv/v/ac2654685 (192.168.28.252) 672.61ms
+[D 160413 11:03:13 http_server:46] start http server: 10990
+[D 160413 11:03:17 http_server:19] GET helper api: parse
+[I 160413 11:03:18 web:1908] 304 GET /parse?url=http://www.acfun.tv/v/ac2654685 (192.168.28.252) 1195.09ms
+[D 160413 11:05:48 http_server:46] start http server: 10990
+[D 160413 11:05:55 http_server:19] GET helper api: parse
+[I 160413 11:05:56 web:1908] 304 GET /parse?url=http://www.acfun.tv/v/ac2654685 (192.168.28.252) 715.10ms
+[D 160413 11:06:49 http_server:46] start http server: 10990
+[D 160413 11:06:54 http_server:19] GET helper api: parse
+[I 160413 11:06:54 web:1908] 304 GET /parse?url=http://www.acfun.tv/v/ac2654685 (192.168.28.252) 467.47ms
+[D 160413 11:09:11 http_server:46] start http server: 10990
+[D 160413 11:09:16 http_server:19] GET helper api: parse
+[I 160413 11:09:16 web:1908] 304 GET /parse?url=http://www.acfun.tv/v/ac2654685 (192.168.28.252) 151.63ms
+[D 160413 11:12:00 http_server:46] start http server: 10990
+[D 160413 11:12:05 http_server:19] GET helper api: parse
+[I 160413 11:12:07 web:1908] 304 GET /parse?url=http://www.acfun.tv/v/ac2654685 (192.168.28.252) 1540.88ms
+[D 160413 11:12:09 http_server:19] GET helper api: parse
+[I 160413 11:12:09 web:1908] 200 GET /parse?url=http://www.acfun.tv/v/ac2654685 (192.168.28.252) 697.71ms
+[D 160413 11:12:55 http_server:46] start http server: 10990
+[D 160413 11:12:57 http_server:19] GET helper api: parse
+[I 160413 11:12:58 web:1908] 304 GET /parse?url=http://www.acfun.tv/v/ac2654685 (192.168.28.252) 796.66ms
+[D 160413 11:13:06 http_server:19] GET helper api: parse
+[I 160413 11:13:07 web:1908] 304 GET /parse?url=http://www.acfun.tv/v/ac2654685 (192.168.28.252) 702.47ms
+[D 160413 11:16:29 http_server:19] GET helper api: parse
+[I 160413 11:16:29 web:1908] 304 GET /parse?url=http://www.acfun.tv/v/ac2654685 (192.168.28.252) 709.97ms
+[D 160413 15:02:54 http_server:46] start http server: 10990
+[D 160413 15:03:01 http_server:19] GET helper api: parse
+[I 160413 15:03:03 web:1908] 200 GET /parse?url=http://www.acfun.tv/v/ac2654685 (192.168.28.252) 2526.71ms
+[D 160413 15:04:38 http_server:46] start http server: 10990
+[D 160413 15:04:41 http_server:19] GET helper api: parse
+[I 160413 15:04:42 web:1908] 304 GET /parse?url=http://www.acfun.tv/v/ac2654685 (192.168.28.252) 312.66ms
+[D 160413 15:04:44 http_server:19] GET helper api: parse
+[I 160413 15:04:45 web:1908] 304 GET /parse?url=http://www.acfun.tv/v/ac2654685 (192.168.28.252) 977.60ms
+[D 160413 15:04:45 http_server:19] GET helper api: parse
+[I 160413 15:04:45 web:1908] 200 GET /parse?url=http://www.acfun.tv/v/ac2654685 (192.168.28.252) 372.26ms
+[D 160413 15:06:07 http_server:46] start http server: 10990
+[D 160413 15:06:11 http_server:19] GET helper api: parse
+[I 160413 15:06:13 web:1908] 304 GET /parse?url=http://www.acfun.tv/v/ac2654685 (192.168.28.252) 2056.61ms
+[D 160413 15:06:13 http_server:19] GET helper api: parse
+[I 160413 15:06:13 web:1908] 200 GET /parse?url=http://www.acfun.tv/v/ac2654685 (192.168.28.252) 261.49ms
+[D 160413 15:06:16 http_server:19] GET helper api: parse
+[I 160413 15:06:18 web:1908] 200 GET /parse?url=http://www.acfun.tv/v/ac2654685 (192.168.28.252) 1839.36ms
+[D 160413 15:07:00 http_server:46] start http server: 10990
+[D 160413 15:07:03 http_server:19] GET helper api: parse
+[I 160413 15:07:04 web:1908] 200 GET /parse?url=http://www.acfun.tv/v/ac2654685 (192.168.28.252) 223.61ms
+[D 160413 15:07:06 http_server:19] GET helper api: parse
+[E 160413 15:07:08 http1connection:54] Uncaught exception
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/site-packages/tornado/http1connection.py", line 238, in _read_message
+        delegate.finish()
+      File "/usr/local/lib/python2.7/site-packages/tornado/httpserver.py", line 290, in finish
+        self.delegate.finish()
+      File "/usr/local/lib/python2.7/site-packages/tornado/web.py", line 1984, in finish
+        self.execute()
+      File "/usr/local/lib/python2.7/site-packages/tornado/web.py", line 2017, in execute
+        **self.path_kwargs)
+      File "/usr/local/lib/python2.7/site-packages/tornado/gen.py", line 230, in wrapper
+        yielded = next(result)
+      File "/usr/local/lib/python2.7/site-packages/tornado/web.py", line 1413, in _execute
+        result = method(*self.path_args, **self.path_kwargs)
+      File "/home/wangchao/odin/src/linda/parse/http_server.py", line 25, in get
+        res = handler.handle(url)
+      File "/home/wangchao/odin/src/linda/parse/parse.py", line 226, in handle
+        return json.dumps(parser(url, site))
+      File "/home/wangchao/odin/src/linda/parse/parse.py", line 191, in parse_url_acfun_video
+        ret = parse_url_base(url, pattern, site)
+      File "/home/wangchao/odin/src/linda/parse/parse.py", line 77, in parse_url_base
+        content = response.read()
+      File "/usr/local/lib/python2.7/socket.py", line 351, in read
+        data = self._sock.recv(rbufsize)
+      File "/usr/local/lib/python2.7/httplib.py", line 561, in read
+        s = self.fp.read(amt)
+      File "/usr/local/lib/python2.7/socket.py", line 380, in read
+        data = self._sock.recv(left)
+    KeyboardInterrupt
+[D 160413 15:08:12 http_server:46] start http server: 10990
+[D 160413 15:08:16 http_server:19] GET helper api: parse
+[I 160413 15:08:16 web:1908] 200 GET /parse?url=http://www.acfun.tv/v/ac2654685 (192.168.28.252) 861.49ms
+[D 160413 15:08:18 http_server:19] GET helper api: parse
+[I 160413 15:08:19 web:1908] 304 GET /parse?url=http://www.acfun.tv/v/ac2654685 (192.168.28.252) 372.73ms
+[D 160413 15:10:14 http_server:46] start http server: 10990
+[D 160413 15:10:16 http_server:19] GET helper api: parse
+[I 160413 15:10:17 web:1908] 200 GET /parse?url=http://www.acfun.tv/v/ac2654685 (192.168.28.252) 953.44ms
+[D 160413 15:11:19 http_server:46] start http server: 10990
+[D 160413 15:11:22 http_server:19] GET helper api: parse
+[I 160413 15:11:23 web:1908] 200 GET /parse?url=http://www.acfun.tv/v/ac2654685 (192.168.28.252) 863.80ms
+[D 160413 15:11:25 http_server:19] GET helper api: parse
+[I 160413 15:11:26 web:1908] 304 GET /parse?url=http://www.acfun.tv/v/ac2654685 (192.168.28.252) 963.93ms
+[D 160413 15:12:08 http_server:46] start http server: 10990
+[D 160413 15:12:09 http_server:19] GET helper api: parse
+[I 160413 15:12:11 web:1908] 200 GET /parse?url=http://www.acfun.tv/v/ac2654685 (192.168.28.252) 1542.85ms
+[D 160413 17:08:43 http_server:46] start http server: 10990
+[D 160413 17:09:56 http_server:19] GET helper api: parse
+[I 160413 17:09:57 web:1908] 200 GET /parse?url=http://www.v1.cn/2016-03-11/2328585.shtml (192.168.28.252) 895.89ms
+[W 160413 17:09:57 web:1908] 404 GET /favicon.ico (192.168.28.252) 0.65ms
+[D 160413 17:13:01 http_server:46] start http server: 10990
+[D 160413 17:13:07 http_server:19] GET helper api: parse
+[I 160413 17:13:08 web:1908] 200 GET /parse?url=http://www.v1.cn/2016-03-11/2328585.shtml (192.168.28.252) 722.55ms
+[D 160413 17:13:25 http_server:19] GET helper api: parse
+[I 160413 17:13:25 web:1908] 200 GET /parse?url=http://www.v1.cn/2016-04-07/2348591.shtml (192.168.28.252) 300.19ms
+[D 160413 17:15:39 http_server:46] start http server: 10990
+[D 160413 17:15:43 http_server:19] GET helper api: parse
+[I 160413 17:15:44 web:1908] 200 GET /parse?url=http://www.v1.cn/2016-04-07/2348591.shtml (192.168.28.252) 669.85ms
+[D 160413 17:30:03 http_server:46] start http server: 10990
+[D 160413 17:30:32 http_server:19] GET helper api: parse
+[I 160413 17:30:32 web:1908] 200 GET /parse?url=http://v.ifeng.com/news/taiwan/201604/01e4861b-5983-474a-9e60-f4b6e24df94b.shtml (192.168.28.252) 686.90ms
+[D 160504 18:08:00 http_server:46] start http server: 10990
+[D 160504 18:09:47 http_server:19] GET helper api: parse
+[I 160504 18:09:48 web:1908] 200 GET /parse?url=http://www.v1.cn/2016-03-11/2328585.shtml (192.168.28.252) 805.11ms
+[W 160504 18:09:48 web:1908] 404 GET /favicon.ico (192.168.28.252) 0.98ms
+[D 160504 18:09:57 http_server:19] GET helper api: parse
+[I 160504 18:09:57 web:1908] 304 GET /parse?url=http://www.v1.cn/2016-03-11/2328585.shtml (192.168.28.252) 313.87ms
+[D 160505 10:31:31 http_server:46] start http server: 10990
+[D 160505 10:31:55 http_server:19] GET helper api: parse
+[I 160505 10:31:56 web:1908] 200 GET /parse?url=http://www.le.com/ptv/vplay/22027109.html (192.168.28.252) 1332.12ms
+[D 160505 10:32:26 http_server:19] GET helper api: parse
+[I 160505 10:32:26 web:1908] 200 GET /parse?url=http://tv.sohu.com/20160504/n447651704.shtml (192.168.28.252) 151.16ms
+[D 160505 10:32:29 http_server:19] GET helper api: parse
+[I 160505 10:32:29 web:1908] 304 GET /parse?url=http://tv.sohu.com/20160504/n447651704.shtml (192.168.28.252) 41.51ms
+[D 160505 10:33:00 http_server:46] start http server: 10990
+[D 160505 10:33:05 http_server:19] GET helper api: parse
+[I 160505 10:33:05 web:1908] 304 GET /parse?url=http://tv.sohu.com/20160504/n447651704.shtml (192.168.28.252) 556.80ms
+[D 160505 10:35:47 http_server:46] start http server: 10990
+[D 160505 10:35:50 http_server:19] GET helper api: parse
+[I 160505 10:35:51 web:1908] 304 GET /parse?url=http://tv.sohu.com/20160504/n447651704.shtml (192.168.28.252) 102.46ms
+[D 160505 10:36:28 http_server:46] start http server: 10990
+[D 160505 10:36:35 http_server:19] GET helper api: parse
+[I 160505 10:36:35 web:1908] 304 GET /parse?url=http://tv.sohu.com/20160504/n447651704.shtml (192.168.28.252) 50.33ms
+[D 160505 10:38:32 http_server:46] start http server: 10990
+[D 160505 10:38:38 http_server:19] GET helper api: parse
+[I 160505 10:38:38 web:1908] 304 GET /parse?url=http://tv.sohu.com/20160504/n447651704.shtml (192.168.28.252) 594.61ms
+[D 160505 10:40:30 http_server:46] start http server: 10990
+[D 160505 10:40:35 http_server:19] GET helper api: parse
+[I 160505 10:40:35 web:1908] 304 GET /parse?url=http://tv.sohu.com/20160504/n447651704.shtml (192.168.28.252) 46.70ms
+[D 160505 10:44:12 http_server:46] start http server: 10990
+[D 160505 10:44:22 http_server:19] GET helper api: parse
+[I 160505 10:44:22 web:1908] 304 GET /parse?url=http://tv.sohu.com/20160504/n447651704.shtml (192.168.28.252) 113.41ms
+[D 160505 10:45:31 http_server:46] start http server: 10990
+[D 160505 10:45:35 http_server:19] GET helper api: parse
+[I 160505 10:45:35 web:1908] 304 GET /parse?url=http://tv.sohu.com/20160504/n447651704.shtml (192.168.28.252) 49.31ms
+[D 160505 10:46:02 http_server:46] start http server: 10990
+[D 160505 10:46:06 http_server:19] GET helper api: parse
+[I 160505 10:46:06 web:1908] 304 GET /parse?url=http://tv.sohu.com/20160504/n447651704.shtml (192.168.28.252) 46.37ms
+[D 160505 10:46:25 http_server:46] start http server: 10990
+[D 160505 10:46:28 http_server:19] GET helper api: parse
+[I 160505 10:46:29 web:1908] 304 GET /parse?url=http://tv.sohu.com/20160504/n447651704.shtml (192.168.28.252) 171.75ms
+[D 160505 10:49:12 http_server:46] start http server: 10990
+[D 160505 10:49:26 http_server:46] start http server: 10990
+[D 160505 10:49:32 http_server:19] GET helper api: parse
+[I 160505 10:49:32 web:1908] 304 GET /parse?url=http://tv.sohu.com/20160504/n447651704.shtml (192.168.28.252) 119.00ms
+[D 160505 10:51:48 http_server:46] start http server: 10990
+[D 160505 10:51:53 http_server:19] GET helper api: parse
+[I 160505 10:51:53 web:1908] 304 GET /parse?url=http://tv.sohu.com/20160504/n447651704.shtml (192.168.28.252) 106.23ms
+[D 160505 10:54:16 http_server:46] start http server: 10990
+[D 160505 10:54:21 http_server:19] GET helper api: parse
+[I 160505 10:54:21 web:1908] 200 GET /parse?url=http://tv.sohu.com/20160504/n447651704.shtml (192.168.28.252) 71.01ms
+[D 160505 11:07:50 http_server:46] start http server: 10990
+[D 160505 11:07:59 http_server:19] GET helper api: parse
+[I 160505 11:08:00 web:1908] 200 GET /parse?url=http://www.mgtv.com/v/5/3368/f/3140980.html (192.168.28.252) 1120.68ms
+[D 160505 11:09:46 http_server:46] start http server: 10990
+[D 160505 11:09:50 http_server:19] GET helper api: parse
+[I 160505 11:09:50 web:1908] 200 GET /parse?url=http://www.mgtv.com/v/5/3368/f/3140980.html (192.168.28.252) 571.83ms
+[D 160505 11:09:54 http_server:19] GET helper api: parse
+[I 160505 11:09:54 web:1908] 304 GET /parse?url=http://www.mgtv.com/v/5/3368/f/3140980.html (192.168.28.252) 33.87ms
+[D 160505 11:09:58 http_server:19] GET helper api: parse
+[I 160505 11:09:58 web:1908] 304 GET /parse?url=http://www.mgtv.com/v/5/3368/f/3140980.html (192.168.28.252) 36.20ms
+[D 160505 11:09:58 http_server:19] GET helper api: parse
+[I 160505 11:09:58 web:1908] 304 GET /parse?url=http://www.mgtv.com/v/5/3368/f/3140980.html (192.168.28.252) 30.38ms
+[D 160505 11:09:59 http_server:19] GET helper api: parse
+[I 160505 11:09:59 web:1908] 304 GET /parse?url=http://www.mgtv.com/v/5/3368/f/3140980.html (192.168.28.252) 38.82ms
+[D 160505 11:10:03 http_server:19] GET helper api: parse
+[I 160505 11:10:03 web:1908] 304 GET /parse?url=http://www.mgtv.com/v/5/3368/f/3140980.html (192.168.28.252) 24.01ms
+[D 160505 11:13:01 http_server:46] start http server: 10990
+[D 160505 11:13:05 http_server:19] GET helper api: parse
+[I 160505 11:13:05 web:1908] 200 GET /parse?url=http://www.mgtv.com/v/5/3368/f/3140980.html (192.168.28.252) 576.82ms
+[W 160505 11:13:05 web:1908] 404 GET /%22http://list.mgtv.com/10/-------------.html/%22 (192.168.28.252) 0.82ms
+[D 160505 11:13:14 http_server:19] GET helper api: parse
+[I 160505 11:13:14 web:1908] 200 GET /parse?url=http://www.mgtv.com/v/5/3368/f/3140980.html (192.168.28.252) 88.99ms
+[D 160505 11:13:18 http_server:19] GET helper api: parse
+[I 160505 11:13:19 web:1908] 304 GET /parse?url=http://www.mgtv.com/v/5/3368/f/3140980.html (192.168.28.252) 526.99ms
+[D 160505 11:14:12 http_server:46] start http server: 10990
+[D 160505 11:14:16 http_server:19] GET helper api: parse
+[I 160505 11:14:18 web:1908] 200 GET /parse?url=http://www.mgtv.com/v/5/3368/f/3140980.html (192.168.28.252) 1603.52ms
+[W 160505 11:14:18 web:1908] 404 GET /%22http://i3.hunantv.com/p1/20160323/1724278361.png/%22 (192.168.28.252) 0.92ms
+[W 160505 11:14:18 web:1908] 404 GET /%22http://player.hunantv.com/ad_config/config.js/%22 (192.168.28.252) 0.85ms
+[D 160505 11:14:59 http_server:46] start http server: 10990
+[D 160505 11:15:03 http_server:19] GET helper api: parse
+[I 160505 11:15:03 web:1908] 200 GET /parse?url=http://www.mgtv.com/v/5/3368/f/3140980.html (192.168.28.252) 35.26ms
+[D 160505 11:16:47 http_server:46] start http server: 10990
+[D 160505 11:16:50 http_server:19] GET helper api: parse
+[I 160505 11:16:51 web:1908] 200 GET /parse?url=http://www.mgtv.com/v/5/3368/f/3140980.html (192.168.28.252) 1094.13ms
+[D 160505 11:18:01 http_server:46] start http server: 10990
+[D 160505 11:18:05 http_server:19] GET helper api: parse
+[I 160505 11:18:06 web:1908] 200 GET /parse?url=http://www.mgtv.com/v/5/3368/f/3140980.html (192.168.28.252) 571.59ms
+[W 160505 11:18:06 web:1908] 404 GET /%22http://i3.hunantv.com/p1/20160323/1724278361.png/%22 (192.168.28.252) 0.82ms
+[W 160505 11:18:06 web:1908] 404 GET /%22http://player.hunantv.com/ad_config/config.js/%22 (192.168.28.252) 0.80ms
+[D 160505 11:19:21 http_server:46] start http server: 10990
+[D 160505 11:19:26 http_server:19] GET helper api: parse
+[I 160505 11:19:30 web:1908] 200 GET /parse?url=http://www.mgtv.com/v/5/3368/f/3140980.html (192.168.28.252) 3452.16ms
+[D 160505 11:36:11 http_server:46] start http server: 10990
+[D 160505 11:36:15 http_server:19] GET helper api: parse
+[I 160505 11:36:17 web:1908] 200 GET /parse?url=http://www.acfun.tv/v/ac2715062 (192.168.28.252) 1380.02ms
+[D 160505 11:36:20 http_server:19] GET helper api: parse
+[I 160505 11:36:20 web:1908] 304 GET /parse?url=http://www.acfun.tv/v/ac2715062 (192.168.28.252) 299.09ms
+[D 160505 11:36:45 http_server:46] start http server: 10990
+[D 160505 11:36:49 http_server:19] GET helper api: parse
+[I 160505 11:36:50 web:1908] 304 GET /parse?url=http://www.acfun.tv/v/ac2715062 (192.168.28.252) 887.36ms
+[D 160505 11:37:36 http_server:46] start http server: 10990
+[D 160505 11:37:40 http_server:19] GET helper api: parse
+[I 160505 11:37:40 web:1908] 304 GET /parse?url=http://www.acfun.tv/v/ac2715062 (192.168.28.252) 319.45ms
+[D 160505 11:38:20 http_server:46] start http server: 10990
+[D 160505 11:38:25 http_server:19] GET helper api: parse
+[I 160505 11:38:27 web:1908] 304 GET /parse?url=http://www.acfun.tv/v/ac2715062 (192.168.28.252) 1418.09ms
+[D 160505 11:41:50 http_server:46] start http server: 10990
+[D 160505 11:41:54 http_server:19] GET helper api: parse
+[I 160505 11:41:55 web:1908] 304 GET /parse?url=http://www.acfun.tv/v/ac2715062 (192.168.28.252) 993.78ms
+[D 160505 11:43:34 http_server:46] start http server: 10990
+[D 160505 11:43:39 http_server:19] GET helper api: parse
+[I 160505 11:43:40 web:1908] 304 GET /parse?url=http://www.acfun.tv/v/ac2715062 (192.168.28.252) 877.97ms
+[D 160505 11:46:53 http_server:46] start http server: 10990
+[D 160505 11:46:57 http_server:19] GET helper api: parse
+[I 160505 11:46:59 web:1908] 304 GET /parse?url=http://www.acfun.tv/v/ac2715062 (192.168.28.252) 1428.54ms
+[D 160505 11:48:23 http_server:46] start http server: 10990
+[D 160505 11:48:29 http_server:19] GET helper api: parse
+[I 160505 11:48:30 web:1908] 304 GET /parse?url=http://www.acfun.tv/v/ac2715062 (192.168.28.252) 911.16ms
+[D 160505 11:52:08 http_server:46] start http server: 10990
+[D 160505 11:52:13 http_server:19] GET helper api: parse
+[I 160505 11:52:14 web:1908] 304 GET /parse?url=http://www.acfun.tv/v/ac2715062 (192.168.28.252) 1170.83ms
+[D 160505 11:52:45 http_server:46] start http server: 10990
+[D 160505 11:52:49 http_server:19] GET helper api: parse
+[I 160505 11:52:50 web:1908] 304 GET /parse?url=http://www.acfun.tv/v/ac2715062 (192.168.28.252) 1083.68ms
+[D 160505 13:30:50 http_server:46] start http server: 10990
+[D 160505 13:30:57 http_server:19] GET helper api: parse
+[I 160505 13:30:59 web:1908] 304 GET /parse?url=http://www.acfun.tv/v/ac2715062 (192.168.28.252) 1267.73ms
+[D 160505 13:32:25 http_server:46] start http server: 10990
+[D 160505 13:32:30 http_server:19] GET helper api: parse
+[I 160505 13:32:31 web:1908] 304 GET /parse?url=http://www.acfun.tv/v/ac2715062 (192.168.28.252) 744.22ms
+[D 160505 13:37:09 http_server:46] start http server: 10990
+[D 160505 13:37:18 http_server:19] GET helper api: parse
+[I 160505 13:37:19 web:1908] 304 GET /parse?url=http://www.acfun.tv/v/ac2715062 (192.168.28.252) 1316.26ms
+[D 160505 13:38:00 http_server:46] start http server: 10990
+[D 160505 13:38:06 http_server:19] GET helper api: parse
+[I 160505 13:38:07 web:1908] 304 GET /parse?url=http://www.acfun.tv/v/ac2715062 (192.168.28.252) 887.15ms
+[D 160505 13:41:58 http_server:46] start http server: 10990
+[D 160505 13:42:06 http_server:19] GET helper api: parse
+[I 160505 13:42:07 web:1908] 304 GET /parse?url=http://www.acfun.tv/v/ac2715062 (192.168.28.252) 1286.00ms
+[D 160505 13:42:27 http_server:46] start http server: 10990
+[D 160505 13:42:31 http_server:19] GET helper api: parse
+[I 160505 13:42:32 web:1908] 304 GET /parse?url=http://www.acfun.tv/v/ac2715062 (192.168.28.252) 1234.50ms
+[D 160505 13:42:50 http_server:46] start http server: 10990
+[D 160505 13:42:53 http_server:19] GET helper api: parse
+[I 160505 13:42:54 web:1908] 304 GET /parse?url=http://www.acfun.tv/v/ac2715062 (192.168.28.252) 348.53ms
+[D 160505 13:43:46 http_server:46] start http server: 10990
+[D 160505 13:43:52 http_server:19] GET helper api: parse
+[I 160505 13:43:52 web:1908] 304 GET /parse?url=http://www.acfun.tv/v/ac2715062 (192.168.28.252) 353.83ms
+[D 160505 13:43:58 http_server:19] GET helper api: parse
+[I 160505 13:43:59 web:1908] 304 GET /parse?url=http://www.acfun.tv/v/ac2715062 (192.168.28.252) 748.94ms
+[D 160505 13:44:38 http_server:46] start http server: 10990
+[D 160505 13:44:42 http_server:19] GET helper api: parse
+[I 160505 13:44:43 web:1908] 304 GET /parse?url=http://www.acfun.tv/v/ac2715062 (192.168.28.252) 1294.28ms
+[D 160505 13:47:45 http_server:46] start http server: 10990
+[D 160505 13:49:22 http_server:19] GET helper api: parse
+[I 160505 13:49:22 web:1908] 304 GET /parse?url=http://www.acfun.tv/v/ac2715062 (192.168.28.252) 863.40ms
+[D 160505 13:49:58 http_server:46] start http server: 10990
+[D 160505 13:50:01 http_server:19] GET helper api: parse
+[I 160505 13:50:01 web:1908] 304 GET /parse?url=http://www.acfun.tv/v/ac2715062 (192.168.28.252) 334.41ms
+[D 160505 13:51:28 http_server:46] start http server: 10990
+[D 160505 13:51:32 http_server:19] GET helper api: parse
+[I 160505 13:51:33 web:1908] 200 GET /parse?url=http://www.acfun.tv/v/ac2715062 (192.168.28.252) 873.98ms
+[D 160505 13:53:17 http_server:46] start http server: 10990
+[D 160505 13:53:21 http_server:19] GET helper api: parse
+[I 160505 13:53:22 web:1908] 200 GET /parse?url=http://www.acfun.tv/v/ac2715062 (192.168.28.252) 328.29ms
+[D 160505 13:53:50 http_server:46] start http server: 10990
+[D 160505 13:53:55 http_server:19] GET helper api: parse
+[I 160505 13:53:56 web:1908] 200 GET /parse?url=http://www.acfun.tv/v/ac2715062 (192.168.28.252) 756.25ms
+[D 160505 13:54:09 http_server:19] GET helper api: parse
+[I 160505 13:54:13 web:1908] 200 GET /parse?url=http://www.mgtv.com/v/5/623/f/3140978.html (192.168.28.252) 3407.67ms
+[D 160505 13:54:38 http_server:19] GET helper api: parse
+[I 160505 13:54:38 web:1908] 304 GET /parse?url=http://tv.sohu.com/20160504/n447651704.shtml (192.168.28.252) 70.64ms
+[D 160505 13:56:23 http_server:19] GET helper api: parse
+[I 160505 13:56:26 web:1908] 200 GET /parse?url=http://www.tucao.tv/play/h4062175/ (192.168.28.155) 2469.92ms
+[W 160505 13:56:27 web:1908] 404 GET /favicon.ico (192.168.28.155) 0.94ms
+[W 160505 13:56:27 web:1908] 404 GET /favicon.ico (192.168.28.155) 0.68ms
+[D 160505 14:00:29 http_server:19] GET helper api: parse
+[I 160505 14:00:29 web:1908] 200 GET /parse?url=http://www.tucao.tv/play/h4063860/ (192.168.28.252) 198.30ms
+[D 160505 14:01:45 http_server:19] GET helper api: parse
+[I 160505 14:01:45 web:1908] 200 GET /parse?url=http://www.tucao.tv/play/h4063860/ (192.168.28.187) 192.30ms
+[D 160505 14:03:30 http_server:19] GET helper api: parse
+[I 160505 14:03:32 web:1908] 200 GET /parse?url=http://www.acfun.tv/v/ac2707124 (192.168.28.155) 1353.42ms
+[W 160505 14:04:21 web:1908] 404 GET /favicon.ico (192.168.28.187) 1.06ms
+[D 160505 14:04:22 http_server:19] GET helper api: parse
+[I 160505 14:04:22 web:1908] 200 GET /parse?url=http://www.tucao.tv/play/h4063920/ (192.168.28.187) 222.20ms
+[D 160505 14:04:24 http_server:19] GET helper api: parse
+[I 160505 14:04:25 web:1908] 200 GET /parse?url=http://www.acfun.tv/v/ac2707116 (192.168.28.155) 749.99ms
+[D 160505 14:04:58 http_server:19] GET helper api: parse
+[I 160505 14:04:58 web:1908] 200 GET /parse?url=http://www.acfun.tv/v/ac2715062 (192.168.28.155) 424.92ms
+[D 160505 14:06:38 http_server:19] GET helper api: parse
+[I 160505 14:06:38 web:1908] 200 GET /parse?url=http://www.v1.cn/2016-05-04/2368237.shtml (192.168.28.155) 185.80ms
+[D 160505 14:07:28 http_server:19] GET helper api: parse
+[I 160505 14:07:29 web:1908] 200 GET /parse?url=http://www.v1.cn/2016-03-11/2328585.shtml (192.168.28.155) 308.74ms
+[D 160505 14:08:20 http_server:19] GET helper api: parse
+[I 160505 14:08:20 web:1908] 200 GET /parse?url=http://www.acfun.tv/v/ac2710398 (192.168.28.155) 800.77ms
+[D 160505 14:09:16 http_server:19] GET helper api: parse
+[I 160505 14:09:17 web:1908] 200 GET /parse?url=http://acfun.tudou.com/v/ab1470255 (192.168.28.155) 596.19ms
+[D 160505 14:11:23 http_server:19] GET helper api: parse
+[I 160505 14:11:23 web:1908] 200 GET /parse?url=http://www.acfun.tv/v/ac1234525 (192.168.28.155) 441.78ms
+[D 160505 14:11:44 http_server:19] GET helper api: parse
+[I 160505 14:11:45 web:1908] 200 GET /parse?url=http://www.acfun.tv/v/ac526894 (192.168.28.155) 993.28ms
+[D 160505 14:12:55 http_server:19] GET helper api: parse
+[I 160505 14:12:56 web:1908] 200 GET /parse?url=http://www.acfun.tv/v/ac2681119 (192.168.28.155) 776.14ms
+[D 160505 14:13:13 http_server:19] GET helper api: parse
+[I 160505 14:13:14 web:1908] 200 GET /parse?url=http://www.acfun.tv/v/ac2391662 (192.168.28.155) 388.07ms
+[D 160505 14:13:19 http_server:46] start http server: 10990
+[D 160505 14:13:24 http_server:19] GET helper api: parse
+[I 160505 14:13:24 web:1908] 304 GET /parse?url=http://www.tucao.tv/play/h4063860/ (192.168.28.252) 907.51ms
+[D 160505 14:13:28 http_server:19] GET helper api: parse
+[I 160505 14:13:28 web:1908] 304 GET /parse?url=http://www.tucao.tv/play/h4063860/ (192.168.28.252) 217.78ms
+[D 160505 14:14:26 http_server:46] start http server: 10990
+[D 160505 14:14:29 http_server:19] GET helper api: parse
+[I 160505 14:14:29 web:1908] 200 GET /parse?url=http://www.tucao.tv/play/h4063860/ (192.168.28.252) 209.73ms
+[W 160506 13:20:46 web:1908] 404 GET /favicon.ico (192.168.28.187) 2.19ms

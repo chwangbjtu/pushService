@@ -1,0 +1,120 @@
+{% load static %}
+
+<script>
+    $(document).ready(function(){
+        $('[name=btn-del]').click(function(){ 
+            var $key = $(this).closest("tr").find("td:nth-child(1)").text();
+            $.ajax({
+                url: "/api/blacklist/del",
+                type: "GET",
+                data: {
+                    bl_id: $key
+                },
+                success: function(data) {
+                    var obj = JSON.parse(data);
+                    alert("result: " + obj.ret);
+                    var p=document.getElementById("page_go").value;
+                    $("#blacklist-content").load("{% url 'blacklist_copyright' %}"+"?page="+p+"&count="+{{count}});
+                },
+                error: function(xhr, textStatus, errorThrown) {
+                    alert("get error");
+                }
+            });
+        });
+	});
+</script>
+
+<script>
+	function pageCheck()
+    {
+        try {
+            var x=document.getElementById("page_go").value;
+            if(x=="")    throw "值为空";
+            if(isNaN(x)) throw "不是数字";
+            if(x>{{ page_count }})     throw "页数太大";
+            if(x<1)      throw "页数太小";
+        }
+        catch(err) {
+            var y=document.getElementById("err_doc");
+            y.innerHTML="错误：" + err + "。";
+            event.returnvalue=false;
+            return
+        }
+        $("#blacklist-content").load("{% url 'blacklist_copyright' %}"+"?page="+x+"&count="+{{count}});
+    }
+	function Page(a)
+	{
+		$("#blacklist-content").load("{% url 'blacklist_copyright' %}"+"?page="+a+"&count="+{{count}});
+	}
+</script>
+	
+
+<table id="bl-tb" class="table table-hover">
+    <thead>
+        <tr>
+            <th width=10%>序号</th>
+            <th width=25%>黑名单</th>
+            <th width=15%>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for bl in video_list %}
+            <tr>
+                <td>{{ bl.id }}</td>
+                <td>{{ bl.word }}</td>
+                <td>
+	                {% if perms.subscribe.delete_blacklist %}
+	                	<button name="btn-del" class="btn btn-primary">删除</button>
+	                {% else %}
+	                	<button name="btn-del" class="btn btn-primary" disabled="true">删除</button>
+	                {% endif %}
+	            </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<div>			
+	<table class="table">
+        <tbody>
+            <tr>
+                <td>总计<b>{{ video_total }}</b>条, <b>{{ page_count }}</b>页 </td>
+                <td>
+                    <div>
+                    	第<input class="text span1" id="page_go" name="page" value={{page}} placeholder="几" onkeypress="if(event.keyCode==13||event.which==13){return pageCheck()}">页
+                        <input id="page_subit" type="button" value="转到" class="btn btn-primary" onclick="pageCheck()"></input>
+                        <p id="err_doc"></p>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>			
+	
+<div class="pagination pagination-large">
+    <ul>
+        {% if page > 1 %}
+            <li><a href="#" onclick="Page(1)">&lt;&lt;</a></li>
+            <li><a href="#" onclick="Page({{ page|add:-1 }})">&lt;</a></li>
+        {% else %}
+            <li class="disabled"><a>&lt;&lt;</a> </li>
+            <li class="disabled"><a>&lt;</a> </li>
+        {% endif %}
+
+        {% for pg in page_list %}
+            {% if pg == page %}
+                <li><a class="btn btn-success" href="#" onclick="Page({{ pg }})">{{pg}}</a></li>
+            {% else %}
+                <li><a href="#" onclick="Page({{ pg }})">{{ pg }}</a></li>
+            {% endif %}
+        {% endfor %}
+
+        {% if page < page_count %}
+            <li><a href="#" onclick="Page({{ page|add:1 }})">&gt;</a></li>
+            <li><a href="#" onclick="Page({{ page_count }})">&gt;&gt;</a></li>
+        {% else %}
+            <li class="disabled"><a>&gt;</a></li>
+            <li class="disabled"><a>&gt;&gt;</a></li>
+        {% endif %}
+    </ul>
+</div>

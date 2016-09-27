@@ -1,0 +1,291 @@
+{% extends "base.html" %}
+{% load pagination_tags myTag %}
+
+{% block content %}
+
+	<script>
+        $(document).ready(function() {
+            $('.send_form').submit(function () {
+                $.get($(this).attr('action'), $(this).serialize(), function(data) {
+                    var obj = JSON.parse(data);
+                    if(obj.ret != "ok") {
+                        alert(obj.ret);
+                    }
+                });
+                $(this).closest('tr').find('#submit').attr("disabled", true);
+                return false;
+            });
+            $("#content_box").val("{{ content }}");
+            
+	        {% for item in origin_item %}
+            	{% if origin == item.0 %}
+            		change_origin_item('{{item.1}}', '{{item.0}}');
+            	{% endif %}
+            {% endfor %}
+            
+            {% for item in classifi_item %}
+            	{% if classifi == item.0 %}
+            		change_classifi_item('{{item.1}}', '{{item.0}}');
+            	{% endif %}
+            {% endfor %}
+            
+            {% for item in status_item %}
+            	{% if status == item.0 %}
+            		change_status_item('{{item.1}}', '{{item.0}}');
+            	{% endif %}
+            {% endfor %}
+            
+            {% for item in order_item %}
+            	{% if order == item.0 %}
+            		change_order_item('{{item.1}}', '{{item.0}}');
+            	{% endif %}
+            {% endfor %}
+           
+            change_cond_item('{{search_item.0.1}}', '{{search_item.0.0}}');
+            {% for item in search_item %}
+            	{% if cond == item.0 %}
+            		change_cond_item('{{item.1}}', '{{item.0}}');
+            	{% endif %}
+            {% endfor %}
+        });
+	</script>
+	<script>
+        function change_origin_item(content, val)
+        {
+            document.getElementById("origin_item").innerHTML=content + " <span class=\"caret\"></span>";
+            document.getElementById("origin_box").value = val
+        }
+        function change_classifi_item(content, val)
+        {
+            document.getElementById("classifi_item").innerHTML=content + " <span class=\"caret\"></span>";
+            document.getElementById("classifi_box").value = val
+        }
+        function change_status_item(content, val)
+        {
+            document.getElementById("status_item").innerHTML=content + " <span class=\"caret\"></span>";
+            document.getElementById("status_box").value = val
+        }
+        function change_order_item(content, val)
+        {
+            document.getElementById("order_item").innerHTML=content + " <span class=\"caret\"></span>";
+            document.getElementById("order_box").value = val
+        }
+        function change_cond_item(content, val)
+        {
+            document.getElementById("cond_item").innerHTML=content + " <span class=\"caret\"></span>";
+            document.getElementById("cond_box").value = val
+        }
+        function pageCheck()
+        {
+            try {
+                var x=document.getElementById("page_go").value;
+                if(x=="")    throw "值为空";
+                if(isNaN(x)) throw "不是数字";
+                if(x>{{ page_count }})     throw "页数太大";
+                if(x<1)      throw "页数太小";
+            }
+            catch(err) {
+                var y=document.getElementById("err_doc");
+                y.innerHTML="错误：" + err + "。";
+                event.returnvalue=false;
+                return
+            }
+            var origin = document.getElementById("origin_box").value;
+            var classifi = document.getElementById("classifi_box").value;
+            var status = document.getElementById("status_box").value;
+            var order = document.getElementById("order_box").value;
+            var cond = document.getElementById("cond_box").value;
+            var content = document.getElementById("content_box").value;
+            location.href = "?page="+x+"&count="+{{count}}+"&origin="+origin+"&classifi="+classifi+"&status="+status+"&order="+order+"&cond="+cond+"&content="+content;
+        }
+    </script> 
+
+<div class="container-fluid"  id="list">
+	<h2 class="text-center">爬虫视频列表</h2>
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span6">		
+				<form class='list_form' id='list_form' action="" method="GET">
+					<div class="btn-group">
+		                <a class="btn dropdown-toggle" id="origin_item" data-toggle="dropdown" href="#">
+		                    <span class="caret"></span>
+		                </a>
+		                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+		                	{% for item in origin_item %}	                    	
+		                		<li><a tabindex="-1" href="javascript:change_origin_item('{{item.1}}', '{{item.0}}')">{{item.1}}</a></li>
+		                    {% endfor %}
+		                </ul>
+		            </div>
+		            <input class="text" id='origin_box' style="display:none" name="origin" value=""></input>
+					
+					<div class="btn-group">
+	                    <a class="btn dropdown-toggle" id="classifi_item" data-toggle="dropdown" href="#">
+	                        <span class="caret"></span>
+	                    </a>
+	                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+	                    	{% for item in classifi_item %}	                    	
+	                    		<li><a tabindex="-1" href="javascript:change_classifi_item('{{item.1}}', '{{item.0}}')">{{item.1}}</a></li>
+	                        {% endfor %}
+	                    </ul>
+	                </div>
+	                <input class="text" id='classifi_box' style="display:none" name="classifi" value=""></input>
+	                
+		            <div class="btn-group">
+		                <a class="btn dropdown-toggle" id="status_item" data-toggle="dropdown" href="#">
+		                    <span class="caret"></span>
+		                </a>
+		                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+		                	{% for item in status_item %}	                    	
+		                		<li><a tabindex="-1" href="javascript:change_status_item('{{item.1}}', '{{item.0}}')">{{item.1}}</a></li>
+		                    {% endfor %}
+		                </ul>
+		            </div>
+		            <input class="text" id='status_box' style="display:none" name="status" value=""></input>
+		            
+		            <div class="btn-group">
+	                    <a class="btn dropdown-toggle" id="order_item" data-toggle="dropdown" href="#">
+	                        <span class="caret"></span>
+	                    </a>
+	                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+	                    	{% for item in order_item %}	                    	
+	                    		<li><a tabindex="-1" href="javascript:change_order_item('{{item.1}}', '{{item.0}}')">{{item.1}}</a></li>
+	                        {% endfor %}
+	                    </ul>
+	                </div>
+	                <input class="text" id='order_box' style="display:none" name="order" value=""></input>
+	                		            
+		       		<button id="filter" type="submit" class="btn btn-primary">确定</button>
+		   		</form>
+		   	</div>
+		   	
+		   	<div class="span6">
+				<form class="search_form" id="search_form" action="" method="GET">				
+					<div class="btn-group">
+		                <a class="btn dropdown-toggle" id="cond_item" data-toggle="dropdown" href="#">
+		                    <span class="caret"></span>
+		                </a>
+		                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+		                	{% for item in search_item %}	                    	
+		                		<li><a tabindex="-1" href="javascript:change_cond_item('{{item.1}}', '{{item.0}}')">{{item.1}}</a></li>
+		                    {% endfor %}
+		                </ul>
+		            </div>
+	                <input class="text" id="cond_box" style="display:none" name="cond" value=""></input>
+	                <input class="text" id="content_box" name="content" value=""></input>
+	           		<button id="filter" type="submit" class="btn btn-primary">搜索</button>
+	       		</form>
+			</div>
+		</div>
+	</div>
+	
+	<div class="container-fluid">		
+		<fieldset>
+			<table id="keyword-tb" class="table table-hover">
+			    <thead>
+			        <tr>
+			            <th width="32%">标题</th>
+			            <th width="7%">来源</th>
+			            <th width="7%">分类</th>
+			            <th width="11%">源频道</th>
+			            <th width="6%">清晰度</th>
+			            <th width="7%">播放数</th>
+			            <th width="8%">上传时间</th>
+			            <th width="8%">爬取时间</th>
+			            <th width="7%">状态</th>
+			            <th width="7%">操作</th>
+			        </tr>
+			    </thead>
+			    <tbody>
+			        {% for k in video_list %}
+			            <tr>
+				            <form class="send_form" action="/api/send/episode" method="POST">
+                                <input id="border" name="user" value="{{ request.user.username }}">
+				            	<td>
+				            		<input id="border" name="show_id" value="{{ k.show_id }}">
+				            		<a href="{{ k.url }}" target="_blank">{{ k.title }}</a>
+				            	</td>
+				                <td>
+				                	{% set site = str(k["site_id"]) %}
+				                	{% for item in origin_item %}				                		                	
+				                		{% if item.0 == site %}
+				                			{{ item.1 }}	 
+				                		{% endif %}
+				                    {% endfor %}
+				                </td>
+				                <td><a href="/subscribe/video?classifi={{ k.category }}">{{ k.category }}<a></td>
+				                <td><a href="/subscribe/video?cond=owner&content={{k.owner_show_id}}">{{ k.user_name }}<a></td>		                
+				                <td>{{ k.format_name }}</td>
+				                <td>{{ k.played }}</td>
+				                <td>{{ k.upload_time|date:"Y-m-d H:i:s" }}</td>
+				                <td>{{ k.create_time|date:"Y-m-d H:i:s" }}</td>
+				                <td>{{ k.result }}</td>
+				                <td>
+					                {% if perms.subscribe.submit_video %}
+                                        {% if k.step_id %}
+                                            {% if k.step_id == 20 and k.status != 1 %}
+                                                <button id="submit" type="submit" class="btn btn-primary">提交</button>
+                                            {% endif %}
+                                        {% else %}
+                                            <button id="submit" type="submit" class="btn btn-primary">提交</button>
+                                        {% endif %}
+
+	                                {% else %}
+	                                    <button id="submit" type="submit" class="btn" disabled="true">提交</button>
+	                                {% endif %}
+	                            </td>
+				            </form>
+			            </tr>
+			        {% endfor %}
+			    </tbody>
+			</table>
+		</fieldset>	
+		
+		<div>			
+        	<table class="table">
+	            <tbody>
+	                <tr>
+	                    <td>总计<b>{{ video_total }}</b>条, <b>{{ page_count }}</b>页 </td>
+	                    <td>
+	                        <div>
+	                        	第<input class="text span1" id="page_go" name="page" value={{page}} placeholder="几" onkeypress="if(event.keyCode==13||event.which==13){return pageCheck()}">页
+	                            <input id="page_subit" type="button" value="转到" class="btn btn-primary" onclick="pageCheck()"></input>
+	                            <p id="err_doc"></p>
+	                        </div>
+	                    </td>
+	                </tr>
+	            </tbody>
+	        </table>
+        </div>				
+			
+		<div class="pagination pagination-large">
+		    <ul>
+		        {% if page > 1 %}
+		            <li><a href="?page=1&count={{ count }}&origin={{origin}}&classifi={{classifi}}&status={{status}}&order={{order}}&cond={{cond}}&content={{content}}">&lt;&lt;</a></li>
+		            <li><a href="?page={{ page|add:-1 }}&count={{count}}&origin={{origin}}&classifi={{classifi}}&status={{status}}&order={{order}}&cond={{cond}}&content={{content}}">&lt;</a></li>
+		        {% else %}
+		            <li class="disabled"><a>&lt;&lt;</a> </li>
+		            <li class="disabled"><a>&lt;</a> </li>
+		        {% endif %}
+		
+		        {% for pg in page_list %}
+		            {% if pg == page %}
+		                <li><a class="btn btn-success" href="?page={{pg}}&count={{count}}&origin={{origin}}&classifi={{classifi}}&status={{status}}&order={{order}}&cond={{cond}}&content={{content}}">{{pg}}</a></li>
+		            {% else %}
+		                <li><a href="?page={{pg}}&count={{count}}&origin={{origin}}&classifi={{classifi}}&status={{status}}&order={{order}}&cond={{cond}}&content={{content}}">{{pg}}</a></li>
+		            {% endif %}
+		        {% endfor %}
+		
+		        {% if page < page_count %}
+		            <li><a href="?page={{ page|add:1 }}&count={{count}}&origin={{origin}}&classifi={{classifi}}&status={{status}}&order={{order}}&cond={{cond}}&content={{content}}">&gt;</a></li>
+		            <li><a href="?page={{ page_count }}&count={{count}}&origin={{origin}}&classifi={{classifi}}&status={{status}}&order={{order}}&cond={{cond}}&content={{content}}">&gt;&gt;</a></li>
+		        {% else %}
+		            <li class="disabled"><a>&gt;</a></li>
+		            <li class="disabled"><a>&gt;&gt;</a></li>
+		        {% endif %}
+		    </ul>
+		</div>
+	</div>  
+</div>         
+
+{% endblock %}
+

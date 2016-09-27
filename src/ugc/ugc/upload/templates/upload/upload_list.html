@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html class="  ext-strict x-viewport" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>风行UGC系统</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+    <link href="/static/js/bootstrap.min.css" rel="stylesheet" media="screen">
+    <script src="/static/js/jquery.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" >
+        thisURL = document.URL;
+      var activeLeaf = null;
+      $(function(){
+          $("li").bind("click",function(event){
+            if(this != event.target.parentElement || activeLeaf == this){
+              return;
+            }
+            if(activeLeaf != null){
+              activeLeaf.className = "";
+            }
+            activeLeaf = this;
+            this.className = "active";
+          })
+      })
+
+      //响应视频播放按钮
+      function on_btn_play(uri){
+        var top = window.screen.availHeight/5;
+        var left = window.screen.availWidth/5;
+        var width = "1200";
+        var height = "600";
+        var feature = "width=" + width + ",height=" + height + ",top=" + String(top) + ",left=" + String(left);
+        var video_url = "/audit/playvideo?video=" + uri;
+        var pop_win = window.open(video_url,"",feature);
+        pop_win.focus();
+      }
+    </script>
+</head>
+<body id="ext-gen3" class="body_class" scroll="no" style="width:100%;height:100%;margin:0 auto;">
+    <h1 class="text-center">用户上传空间</h1>
+    <div class="container">
+        <table class="table table-striped table-bordered table-hover table-condensed">
+            <thead>
+                <tr>
+                    <td>
+                        tid
+                    </td>
+                    <td>
+                        标题
+                    </td>
+                    <td>
+                        标签
+                    </td>
+                    <td>
+                        描述
+                    </td>
+                    <td>
+                        优先级
+                    </td>
+                    <td>
+                        频道
+                    </td>
+                    <td>
+                        上传时间
+                    </td>
+                    <td>
+                        步骤
+                    </td>
+                    <td>
+                        播放
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for data in data_list %}
+                <tr>
+                    <td >
+                        {{ data.tid }}
+                    </td>
+                    <td >
+                        {{ data.title }}
+                    </td>
+                    <td >
+                        {{ data.tags }}
+                    </td>
+                    <td >
+                        {{ data.description }}
+                    </td>
+                    <td>
+                        {{ data.priority }}
+                    </td>
+                    <td>
+                        {{ data.channel }}
+                    </td>
+                    <td>
+                        {{ data.time }}
+                    </td>
+                    <td>
+                        {{ data.step }} : {{ data.status }}
+                    </td>
+
+                    {% if data.video_url and data.status == "完成"%}
+                    <td>
+                        <button class="btn btn-primary" onclick="javascript:void(on_btn_play('{{data.video_url }}'));">播放</button>
+                    </td>
+                    {% else %}
+                    <td>
+                        <a class="btn disabled" href="#">播放</a>
+                    </td>
+                    {% endif %}
+                </tr>
+                {% endfor%}
+            </tbody>
+        </table>
+
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td>
+                        当前第{{page_number}}页
+                    </td>
+                    <td>
+                        本页共{{list_count}}条
+                    </td>
+                    <td>
+                        所有记录共{{record_count}}条
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+        <div class="pagination pagination-large">
+            <ul>
+                {% if page_number > 1%}
+                    <li> <a href="?page={{ page_number_last }}">&lt;&lt;</a> </li>
+                {% else %}
+                    <li class="disabled"><a >&lt;&lt;</a></li>
+                {% endif %}
+                {% for pg in page_range %}
+                    <li ><a href="?page={{pg}}">{{pg}}</a></li>
+                {% endfor %}
+                {% if page_number < page_count %}
+                    <li><a href="?page={{ page_number_next }}">&gt;&gt;</a></li>
+                {% else %}
+                    <li class="disabled"><a>&gt;&gt;</a></li>
+                {% endif %}
+            </ul>
+
+        </div>
+    </div>
+</body>
+</html>
