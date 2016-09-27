@@ -1,0 +1,410 @@
+[W 151223 08:33:15 web:1728] 404 GET /app/loadms?msgid=1 (192.168.144.137) 1.02ms
+[W 151223 08:33:15 web:1728] 404 GET /app/loadms?msgid=1 (192.168.144.137) 1.02ms
+[W 151223 08:33:15 web:1728] 404 GET /favicon.ico (192.168.144.137) 0.50ms
+[W 151223 08:33:15 web:1728] 404 GET /favicon.ico (192.168.144.137) 0.50ms
+[W 151223 08:33:32 web:1728] 404 GET /app/loadms/msgid=1 (192.168.144.137) 0.56ms
+[W 151223 08:33:32 web:1728] 404 GET /app/loadms/msgid=1 (192.168.144.137) 0.56ms
+[W 151223 08:33:57 web:1728] 404 GET /app/loadms (192.168.144.137) 0.44ms
+[W 151223 08:33:57 web:1728] 404 GET /app/loadms (192.168.144.137) 0.44ms
+[E 151223 08:34:37 web:1305] Uncaught exception GET /app/loadmsg??msgid=1 (192.168.144.137)
+    HTTPRequest(protocol='http', host='192.168.16.154:8000', method='GET', uri='/app/loadmsg??msgid=1', version='HTTP/1.1', remote_ip='192.168.144.137', headers={'Connection': 'keep-alive', 'Accept-Language': 'zh-CN,zh;q=0.8', 'Accept-Encoding': 'gzip, deflate, sdch', 'Upgrade-Insecure-Requests': '1', 'Host': '192.168.16.154:8000', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36'})
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/site-packages/tornado/web.py", line 1232, in _when_complete
+        raise ValueError("Expected Future or None, got %r" % result)
+    ValueError: Expected Future or None, got '{"retcode": "404", "retmsg": "error"}'
+[E 151223 08:34:37 web:1305] Uncaught exception GET /app/loadmsg??msgid=1 (192.168.144.137)
+    HTTPRequest(protocol='http', host='192.168.16.154:8000', method='GET', uri='/app/loadmsg??msgid=1', version='HTTP/1.1', remote_ip='192.168.144.137', headers={'Connection': 'keep-alive', 'Accept-Language': 'zh-CN,zh;q=0.8', 'Accept-Encoding': 'gzip, deflate, sdch', 'Upgrade-Insecure-Requests': '1', 'Host': '192.168.16.154:8000', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36'})
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/site-packages/tornado/web.py", line 1232, in _when_complete
+        raise ValueError("Expected Future or None, got %r" % result)
+    ValueError: Expected Future or None, got '{"retcode": "404", "retmsg": "error"}'
+[E 151223 08:34:37 web:1728] 500 GET /app/loadmsg??msgid=1 (192.168.144.137) 18.11ms
+[E 151223 08:34:37 web:1728] 500 GET /app/loadmsg??msgid=1 (192.168.144.137) 18.11ms
+[I 151223 08:34:41 loadmsg:30] global name 'msg_info' is not defined
+[I 151223 08:34:41 loadmsg:30] global name 'msg_info' is not defined
+[I 151223 08:34:41 web:1728] 200 GET /app/loadmsg?msgid=1 (192.168.144.137) 1.10ms
+[I 151223 08:34:41 web:1728] 200 GET /app/loadmsg?msgid=1 (192.168.144.137) 1.10ms
+[I 151223 08:35:23 loadmsg:30] global name 'msg_info' is not defined
+[I 151223 08:35:23 loadmsg:30] global name 'msg_info' is not defined
+[I 151223 08:35:23 web:1728] 200 GET /app/loadmsg?msgid=5 (192.168.144.137) 1.75ms
+[I 151223 08:35:23 web:1728] 200 GET /app/loadmsg?msgid=5 (192.168.144.137) 1.75ms
+[I 151223 08:36:11 loadmsg:30] global name 'msg_info' is not defined
+[I 151223 08:36:11 loadmsg:30] global name 'msg_info' is not defined
+[I 151223 08:36:11 web:1728] 304 GET /app/loadmsg?msgid=5 (192.168.144.137) 1.81ms
+[I 151223 08:36:11 web:1728] 304 GET /app/loadmsg?msgid=5 (192.168.144.137) 1.81ms
+[I 151223 08:37:07 loadmsg:30] global name 'msg_info' is not defined
+[I 151223 08:37:07 loadmsg:30] global name 'msg_info' is not defined
+[I 151223 08:37:07 web:1728] 304 GET /app/loadmsg?msgid=5 (192.168.144.137) 1.44ms
+[I 151223 08:37:07 web:1728] 304 GET /app/loadmsg?msgid=5 (192.168.144.137) 1.44ms
+[I 151223 08:37:52 loadmsg:30] global name 'msg_info' is not defined
+[I 151223 08:37:52 loadmsg:30] global name 'msg_info' is not defined
+[I 151223 08:37:52 web:1728] 304 GET /app/loadmsg?msgid=5 (192.168.144.137) 1.36ms
+[I 151223 08:37:52 web:1728] 304 GET /app/loadmsg?msgid=5 (192.168.144.137) 1.36ms
+[I 151223 08:38:48 loadmsg:30] global name 'msg_info' is not defined
+[I 151223 08:38:48 loadmsg:30] global name 'msg_info' is not defined
+[I 151223 08:38:48 web:1728] 304 GET /app/loadmsg?msgid=5 (192.168.144.137) 1.47ms
+[I 151223 08:38:48 web:1728] 304 GET /app/loadmsg?msgid=5 (192.168.144.137) 1.47ms
+[I 151223 08:41:00 loadmsg:30] Traceback (most recent call last):
+      File "/home/wangchao/freyr/src/device_manager/handler/loadmsg.py", line 19, in get
+        loadmsg_mgr = device.DaoLoadMsgMgr()
+    NameError: global name 'device' is not defined
+    
+[I 151223 08:41:00 loadmsg:30] Traceback (most recent call last):
+      File "/home/wangchao/freyr/src/device_manager/handler/loadmsg.py", line 19, in get
+        loadmsg_mgr = device.DaoLoadMsgMgr()
+    NameError: global name 'device' is not defined
+    
+[I 151223 08:41:00 web:1728] 304 GET /app/loadmsg?msgid=5 (192.168.144.137) 2.02ms
+[I 151223 08:41:00 web:1728] 304 GET /app/loadmsg?msgid=5 (192.168.144.137) 2.02ms
+[E 151223 08:41:59 web:1305] Uncaught exception GET /app/loadmsg?msgid=5 (192.168.144.137)
+    HTTPRequest(protocol='http', host='192.168.16.154:8000', method='GET', uri='/app/loadmsg?msgid=5', version='HTTP/1.1', remote_ip='192.168.144.137', headers={'Accept-Language': 'zh-CN,zh;q=0.8', 'Accept-Encoding': 'gzip, deflate, sdch', 'Host': '192.168.16.154:8000', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36', 'Connection': 'keep-alive', 'Cache-Control': 'max-age=0', 'If-None-Match': '"a4bf2339a16f0f0df5840d2743ab4330bbd7dcb7"', 'Upgrade-Insecure-Requests': '1'})
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/site-packages/tornado/web.py", line 1218, in _when_complete
+        callback()
+      File "/usr/local/lib/python2.7/site-packages/tornado/web.py", line 1239, in _execute_method
+        self._when_complete(method(*self.path_args, **self.path_kwargs),
+      File "/home/wangchao/freyr/src/device_manager/handler/loadmsg.py", line 33, in get
+        self.write(json.dumps(response))
+      File "/usr/local/lib/python2.7/json/__init__.py", line 231, in dumps
+        return _default_encoder.encode(obj)
+      File "/usr/local/lib/python2.7/json/encoder.py", line 201, in encode
+        chunks = self.iterencode(o, _one_shot=True)
+      File "/usr/local/lib/python2.7/json/encoder.py", line 264, in iterencode
+        return _iterencode(o, 0)
+      File "/usr/local/lib/python2.7/json/encoder.py", line 178, in default
+        raise TypeError(repr(o) + " is not JSON serializable")
+    TypeError: ObjectId('5679e82be1382313df81cc20') is not JSON serializable
+[E 151223 08:41:59 web:1305] Uncaught exception GET /app/loadmsg?msgid=5 (192.168.144.137)
+    HTTPRequest(protocol='http', host='192.168.16.154:8000', method='GET', uri='/app/loadmsg?msgid=5', version='HTTP/1.1', remote_ip='192.168.144.137', headers={'Accept-Language': 'zh-CN,zh;q=0.8', 'Accept-Encoding': 'gzip, deflate, sdch', 'Host': '192.168.16.154:8000', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36', 'Connection': 'keep-alive', 'Cache-Control': 'max-age=0', 'If-None-Match': '"a4bf2339a16f0f0df5840d2743ab4330bbd7dcb7"', 'Upgrade-Insecure-Requests': '1'})
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/site-packages/tornado/web.py", line 1218, in _when_complete
+        callback()
+      File "/usr/local/lib/python2.7/site-packages/tornado/web.py", line 1239, in _execute_method
+        self._when_complete(method(*self.path_args, **self.path_kwargs),
+      File "/home/wangchao/freyr/src/device_manager/handler/loadmsg.py", line 33, in get
+        self.write(json.dumps(response))
+      File "/usr/local/lib/python2.7/json/__init__.py", line 231, in dumps
+        return _default_encoder.encode(obj)
+      File "/usr/local/lib/python2.7/json/encoder.py", line 201, in encode
+        chunks = self.iterencode(o, _one_shot=True)
+      File "/usr/local/lib/python2.7/json/encoder.py", line 264, in iterencode
+        return _iterencode(o, 0)
+      File "/usr/local/lib/python2.7/json/encoder.py", line 178, in default
+        raise TypeError(repr(o) + " is not JSON serializable")
+    TypeError: ObjectId('5679e82be1382313df81cc20') is not JSON serializable
+[E 151223 08:41:59 web:1728] 500 GET /app/loadmsg?msgid=5 (192.168.144.137) 132.61ms
+[E 151223 08:41:59 web:1728] 500 GET /app/loadmsg?msgid=5 (192.168.144.137) 132.61ms
+[E 151223 08:43:29 web:1305] Uncaught exception GET /app/loadmsg?msgid=5 (192.168.144.137)
+    HTTPRequest(protocol='http', host='192.168.16.154:8000', method='GET', uri='/app/loadmsg?msgid=5', version='HTTP/1.1', remote_ip='192.168.144.137', headers={'Accept-Language': 'zh-CN,zh;q=0.8', 'Accept-Encoding': 'gzip, deflate, sdch', 'Host': '192.168.16.154:8000', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36', 'Connection': 'keep-alive', 'Cache-Control': 'max-age=0', 'Upgrade-Insecure-Requests': '1'})
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/site-packages/tornado/web.py", line 1218, in _when_complete
+        callback()
+      File "/usr/local/lib/python2.7/site-packages/tornado/web.py", line 1239, in _execute_method
+        self._when_complete(method(*self.path_args, **self.path_kwargs),
+      File "/home/wangchao/freyr/src/device_manager/handler/loadmsg.py", line 33, in get
+        self.write(json.dumps(response))
+      File "/usr/local/lib/python2.7/json/__init__.py", line 231, in dumps
+        return _default_encoder.encode(obj)
+      File "/usr/local/lib/python2.7/json/encoder.py", line 201, in encode
+        chunks = self.iterencode(o, _one_shot=True)
+      File "/usr/local/lib/python2.7/json/encoder.py", line 264, in iterencode
+        return _iterencode(o, 0)
+      File "/usr/local/lib/python2.7/json/encoder.py", line 178, in default
+        raise TypeError(repr(o) + " is not JSON serializable")
+    TypeError: ObjectId('5679e82be1382313df81cc20') is not JSON serializable
+[E 151223 08:43:29 web:1305] Uncaught exception GET /app/loadmsg?msgid=5 (192.168.144.137)
+    HTTPRequest(protocol='http', host='192.168.16.154:8000', method='GET', uri='/app/loadmsg?msgid=5', version='HTTP/1.1', remote_ip='192.168.144.137', headers={'Accept-Language': 'zh-CN,zh;q=0.8', 'Accept-Encoding': 'gzip, deflate, sdch', 'Host': '192.168.16.154:8000', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36', 'Connection': 'keep-alive', 'Cache-Control': 'max-age=0', 'Upgrade-Insecure-Requests': '1'})
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/site-packages/tornado/web.py", line 1218, in _when_complete
+        callback()
+      File "/usr/local/lib/python2.7/site-packages/tornado/web.py", line 1239, in _execute_method
+        self._when_complete(method(*self.path_args, **self.path_kwargs),
+      File "/home/wangchao/freyr/src/device_manager/handler/loadmsg.py", line 33, in get
+        self.write(json.dumps(response))
+      File "/usr/local/lib/python2.7/json/__init__.py", line 231, in dumps
+        return _default_encoder.encode(obj)
+      File "/usr/local/lib/python2.7/json/encoder.py", line 201, in encode
+        chunks = self.iterencode(o, _one_shot=True)
+      File "/usr/local/lib/python2.7/json/encoder.py", line 264, in iterencode
+        return _iterencode(o, 0)
+      File "/usr/local/lib/python2.7/json/encoder.py", line 178, in default
+        raise TypeError(repr(o) + " is not JSON serializable")
+    TypeError: ObjectId('5679e82be1382313df81cc20') is not JSON serializable
+[E 151223 08:43:29 web:1728] 500 GET /app/loadmsg?msgid=5 (192.168.144.137) 121.21ms
+[E 151223 08:43:29 web:1728] 500 GET /app/loadmsg?msgid=5 (192.168.144.137) 121.21ms
+[I 151223 08:44:16 web:1728] 200 GET /app/loadmsg?msgid=5 (192.168.144.137) 117.09ms
+[I 151223 08:44:16 web:1728] 200 GET /app/loadmsg?msgid=5 (192.168.144.137) 117.09ms
+[E 151223 08:46:02 web:1305] Uncaught exception GET /app/getlastmsg?begin=2014-12-1%2012:54:29&end2014-12-5%2012:54:29 (192.168.144.137)
+    HTTPRequest(protocol='http', host='192.168.16.154:8000', method='GET', uri='/app/getlastmsg?begin=2014-12-1%2012:54:29&end2014-12-5%2012:54:29', version='HTTP/1.1', remote_ip='192.168.144.137', headers={'Connection': 'keep-alive', 'Accept-Language': 'zh-CN,zh;q=0.8', 'Accept-Encoding': 'gzip, deflate, sdch', 'Upgrade-Insecure-Requests': '1', 'Host': '192.168.16.154:8000', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36'})
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/site-packages/tornado/web.py", line 1232, in _when_complete
+        raise ValueError("Expected Future or None, got %r" % result)
+    ValueError: Expected Future or None, got '{"retcode": "404", "retmsg": "error"}'
+[E 151223 08:46:02 web:1305] Uncaught exception GET /app/getlastmsg?begin=2014-12-1%2012:54:29&end2014-12-5%2012:54:29 (192.168.144.137)
+    HTTPRequest(protocol='http', host='192.168.16.154:8000', method='GET', uri='/app/getlastmsg?begin=2014-12-1%2012:54:29&end2014-12-5%2012:54:29', version='HTTP/1.1', remote_ip='192.168.144.137', headers={'Connection': 'keep-alive', 'Accept-Language': 'zh-CN,zh;q=0.8', 'Accept-Encoding': 'gzip, deflate, sdch', 'Upgrade-Insecure-Requests': '1', 'Host': '192.168.16.154:8000', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36'})
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/site-packages/tornado/web.py", line 1232, in _when_complete
+        raise ValueError("Expected Future or None, got %r" % result)
+    ValueError: Expected Future or None, got '{"retcode": "404", "retmsg": "error"}'
+[E 151223 08:46:02 web:1728] 500 GET /app/getlastmsg?begin=2014-12-1%2012:54:29&end2014-12-5%2012:54:29 (192.168.144.137) 4.27ms
+[E 151223 08:46:02 web:1728] 500 GET /app/getlastmsg?begin=2014-12-1%2012:54:29&end2014-12-5%2012:54:29 (192.168.144.137) 4.27ms
+[I 151223 08:46:56 web:1728] 200 GET /app/getlastmsg?begin=2014-12-1%202012:54:29&end=2014-12-5%202012:54:29 (192.168.144.137) 116.25ms
+[I 151223 08:46:56 web:1728] 200 GET /app/getlastmsg?begin=2014-12-1%202012:54:29&end=2014-12-5%202012:54:29 (192.168.144.137) 116.25ms
+[I 151223 09:14:12 web:1728] 304 GET /app/getlastmsg?begin=2014-12-1%202012:54:29&end=2014-12-5%202012:54:29 (192.168.144.137) 117.73ms
+[I 151223 09:14:12 web:1728] 304 GET /app/getlastmsg?begin=2014-12-1%202012:54:29&end=2014-12-5%202012:54:29 (192.168.144.137) 117.73ms
+[I 151223 09:59:55 web:1728] 304 GET /app/getlastmsg?begin=2014-12-1%202012:54:29&end=2014-12-5%202012:54:29 (192.168.144.137) 116.81ms
+[I 151223 09:59:55 web:1728] 304 GET /app/getlastmsg?begin=2014-12-1%202012:54:29&end=2014-12-5%202012:54:29 (192.168.144.137) 116.81ms
+[I 151223 10:36:29 loadmsg:27] Traceback (most recent call last):
+      File "/home/wangchao/freyr/src/device_manager/handler/loadmsg.py", line 21, in get
+        response["payload"]=res[0]["payload"]
+      File "/usr/local/lib/python2.7/site-packages/pymongo/cursor.py", line 533, in __getitem__
+        raise IndexError("no such item for Cursor instance")
+    IndexError: no such item for Cursor instance
+    
+[I 151223 10:36:29 loadmsg:27] Traceback (most recent call last):
+      File "/home/wangchao/freyr/src/device_manager/handler/loadmsg.py", line 21, in get
+        response["payload"]=res[0]["payload"]
+      File "/usr/local/lib/python2.7/site-packages/pymongo/cursor.py", line 533, in __getitem__
+        raise IndexError("no such item for Cursor instance")
+    IndexError: no such item for Cursor instance
+    
+[I 151223 10:36:29 web:1728] 200 GET /app/loadmsg?msgid=5 (192.168.144.137) 126.00ms
+[I 151223 10:36:29 web:1728] 200 GET /app/loadmsg?msgid=5 (192.168.144.137) 126.00ms
+[I 151223 10:36:40 loadmsg:27] Traceback (most recent call last):
+      File "/home/wangchao/freyr/src/device_manager/handler/loadmsg.py", line 21, in get
+        response["payload"]=res[0]["payload"]
+      File "/usr/local/lib/python2.7/site-packages/pymongo/cursor.py", line 533, in __getitem__
+        raise IndexError("no such item for Cursor instance")
+    IndexError: no such item for Cursor instance
+    
+[I 151223 10:36:40 loadmsg:27] Traceback (most recent call last):
+      File "/home/wangchao/freyr/src/device_manager/handler/loadmsg.py", line 21, in get
+        response["payload"]=res[0]["payload"]
+      File "/usr/local/lib/python2.7/site-packages/pymongo/cursor.py", line 533, in __getitem__
+        raise IndexError("no such item for Cursor instance")
+    IndexError: no such item for Cursor instance
+    
+[I 151223 10:36:40 web:1728] 200 GET /app/loadmsg?msgid=1 (192.168.144.137) 116.25ms
+[I 151223 10:36:40 web:1728] 200 GET /app/loadmsg?msgid=1 (192.168.144.137) 116.25ms
+[I 151223 10:37:06 loadmsg:27] Traceback (most recent call last):
+      File "/home/wangchao/freyr/src/device_manager/handler/loadmsg.py", line 21, in get
+        response["payload"]=res[0]["payload"]
+      File "/usr/local/lib/python2.7/site-packages/pymongo/cursor.py", line 533, in __getitem__
+        raise IndexError("no such item for Cursor instance")
+    IndexError: no such item for Cursor instance
+    
+[I 151223 10:37:06 loadmsg:27] Traceback (most recent call last):
+      File "/home/wangchao/freyr/src/device_manager/handler/loadmsg.py", line 21, in get
+        response["payload"]=res[0]["payload"]
+      File "/usr/local/lib/python2.7/site-packages/pymongo/cursor.py", line 533, in __getitem__
+        raise IndexError("no such item for Cursor instance")
+    IndexError: no such item for Cursor instance
+    
+[I 151223 10:37:06 web:1728] 304 GET /app/loadmsg?msgid=1 (192.168.144.137) 124.35ms
+[I 151223 10:37:06 web:1728] 304 GET /app/loadmsg?msgid=1 (192.168.144.137) 124.35ms
+[I 151223 10:40:56 web:1728] 200 GET /app/loadmsg?msgid=1 (192.168.144.137) 115.30ms
+[I 151223 10:40:56 web:1728] 200 GET /app/loadmsg?msgid=1 (192.168.144.137) 115.30ms
+[I 151223 10:41:10 web:1728] 304 GET /app/loadmsg?msgid=1 (192.168.144.137) 116.29ms
+[I 151223 10:41:10 web:1728] 304 GET /app/loadmsg?msgid=1 (192.168.144.137) 116.29ms
+[I 151223 10:42:17 web:1728] 304 GET /app/loadmsg?msgid=1 (192.168.144.137) 114.35ms
+[I 151223 10:42:17 web:1728] 304 GET /app/loadmsg?msgid=1 (192.168.144.137) 114.35ms
+[I 151223 10:42:51 web:1728] 304 GET /app/loadmsg?msgid=1 (192.168.144.137) 114.86ms
+[I 151223 10:42:51 web:1728] 304 GET /app/loadmsg?msgid=1 (192.168.144.137) 114.86ms
+[I 151223 10:44:02 web:1728] 304 GET /app/loadmsg?msgid=1 (192.168.144.137) 115.72ms
+[I 151223 10:44:02 web:1728] 304 GET /app/loadmsg?msgid=1 (192.168.144.137) 115.72ms
+[I 151223 10:44:05 web:1728] 200 GET /app/loadmsg?msgid=2 (192.168.144.137) 114.08ms
+[I 151223 10:44:05 web:1728] 200 GET /app/loadmsg?msgid=2 (192.168.144.137) 114.08ms
+[I 151224 01:39:42 web:1728] 200 GET /app/loadmsg?msgid=3 (192.168.144.137) 120.40ms
+[I 151224 01:39:42 web:1728] 200 GET /app/loadmsg?msgid=3 (192.168.144.137) 120.40ms
+[I 151224 01:39:50 web:1728] 200 GET /app/loadmsg?msgid=4 (192.168.144.137) 119.34ms
+[I 151224 01:39:50 web:1728] 200 GET /app/loadmsg?msgid=4 (192.168.144.137) 119.34ms
+[I 151224 01:59:18 getlastmsg:45] global name 'time' is not defined
+[I 151224 01:59:18 getlastmsg:45] global name 'time' is not defined
+[I 151224 01:59:18 web:1728] 200 GET /app/getlastmsg?begin=0&end=3 (192.168.144.137) 116.00ms
+[I 151224 01:59:18 web:1728] 200 GET /app/getlastmsg?begin=0&end=3 (192.168.144.137) 116.00ms
+[I 151224 02:00:26 getlastmsg:45] global name 'datetime' is not defined
+[I 151224 02:00:26 getlastmsg:45] global name 'datetime' is not defined
+[I 151224 02:00:26 web:1728] 304 GET /app/getlastmsg?begin=0&end=3 (192.168.144.137) 118.81ms
+[I 151224 02:00:26 web:1728] 304 GET /app/getlastmsg?begin=0&end=3 (192.168.144.137) 118.81ms
+[I 151224 02:00:49 getlastmsg:46] unsupported operand type(s) for -: 'int' and 'datetime.timedelta'
+[I 151224 02:00:49 getlastmsg:46] unsupported operand type(s) for -: 'int' and 'datetime.timedelta'
+[I 151224 02:00:49 web:1728] 304 GET /app/getlastmsg?begin=0&end=3 (192.168.144.137) 119.09ms
+[I 151224 02:00:49 web:1728] 304 GET /app/getlastmsg?begin=0&end=3 (192.168.144.137) 119.09ms
+[I 151224 02:12:12 getlastmsg:51] argument must be 9-item sequence, not str
+[I 151224 02:12:12 getlastmsg:51] argument must be 9-item sequence, not str
+[I 151224 02:12:12 web:1728] 200 GET /app/getlastmsg?begin=0&end=3 (192.168.144.137) 118.18ms
+[I 151224 02:12:12 web:1728] 200 GET /app/getlastmsg?begin=0&end=3 (192.168.144.137) 118.18ms
+[W 151224 02:12:12 web:1728] 404 GET /favicon.ico (192.168.144.137) 0.48ms
+[W 151224 02:12:12 web:1728] 404 GET /favicon.ico (192.168.144.137) 0.48ms
+[I 151224 02:15:05 getlastmsg:51] argument must be 9-item sequence, not str
+[I 151224 02:15:05 getlastmsg:51] argument must be 9-item sequence, not str
+[I 151224 02:15:05 web:1728] 304 GET /app/getlastmsg?begin=0&end=3 (192.168.144.137) 115.62ms
+[I 151224 02:15:05 web:1728] 304 GET /app/getlastmsg?begin=0&end=3 (192.168.144.137) 115.62ms
+[I 151224 02:15:08 getlastmsg:51] argument must be 9-item sequence, not str
+[I 151224 02:15:08 getlastmsg:51] argument must be 9-item sequence, not str
+[I 151224 02:15:08 web:1728] 304 GET /app/getlastmsg?begin=0&end=3 (192.168.144.137) 114.40ms
+[I 151224 02:15:08 web:1728] 304 GET /app/getlastmsg?begin=0&end=3 (192.168.144.137) 114.40ms
+[I 151224 02:15:33 getlastmsg:54] Traceback (most recent call last):
+      File "/home/wangchao/freyr/src/device_manager/handler/getlastmsg.py", line 37, in get
+        begintime,endtime=self.get_time(begin,end)
+      File "/home/wangchao/freyr/src/device_manager/handler/getlastmsg.py", line 23, in get_time
+        begintime = int(time.mktime(begintime))
+    TypeError: argument must be 9-item sequence, not str
+    
+[I 151224 02:15:33 getlastmsg:54] Traceback (most recent call last):
+      File "/home/wangchao/freyr/src/device_manager/handler/getlastmsg.py", line 37, in get
+        begintime,endtime=self.get_time(begin,end)
+      File "/home/wangchao/freyr/src/device_manager/handler/getlastmsg.py", line 23, in get_time
+        begintime = int(time.mktime(begintime))
+    TypeError: argument must be 9-item sequence, not str
+    
+[I 151224 02:15:33 web:1728] 304 GET /app/getlastmsg?begin=0&end=3 (192.168.144.137) 115.61ms
+[I 151224 02:15:33 web:1728] 304 GET /app/getlastmsg?begin=0&end=3 (192.168.144.137) 115.61ms
+[I 151224 02:18:05 web:1728] 200 GET /app/getlastmsg?begin=0&end=3 (192.168.144.137) 118.94ms
+[I 151224 02:18:05 web:1728] 200 GET /app/getlastmsg?begin=0&end=3 (192.168.144.137) 118.94ms
+[I 151224 02:19:19 web:1728] 304 GET /app/getlastmsg?begin=0&end=3 (192.168.144.137) 119.51ms
+[I 151224 02:19:19 web:1728] 304 GET /app/getlastmsg?begin=0&end=3 (192.168.144.137) 119.51ms
+[I 151224 02:19:22 web:1728] 304 GET /app/getlastmsg?begin=0&end=3 (192.168.144.137) 116.75ms
+[I 151224 02:19:22 web:1728] 304 GET /app/getlastmsg?begin=0&end=3 (192.168.144.137) 116.75ms
+[I 151224 02:19:33 web:1728] 200 GET /app/getlastmsg?begin=0&end=4 (192.168.144.137) 116.11ms
+[I 151224 02:19:33 web:1728] 200 GET /app/getlastmsg?begin=0&end=4 (192.168.144.137) 116.11ms
+[I 151224 02:20:08 web:1728] 304 GET /app/getlastmsg?begin=0&end=4 (192.168.144.137) 178.57ms
+[I 151224 02:20:08 web:1728] 304 GET /app/getlastmsg?begin=0&end=4 (192.168.144.137) 178.57ms
+[I 151224 02:23:54 getlastmsg:56] Traceback (most recent call last):
+      File "/home/wangchao/freyr/src/device_manager/handler/getlastmsg.py", line 45, in get
+        dic["msgid"]=item["msgid"]
+    KeyError: 'msgid'
+    
+[I 151224 02:23:54 getlastmsg:56] Traceback (most recent call last):
+      File "/home/wangchao/freyr/src/device_manager/handler/getlastmsg.py", line 45, in get
+        dic["msgid"]=item["msgid"]
+    KeyError: 'msgid'
+    
+[I 151224 02:23:54 web:1728] 200 GET /app/getlastmsg?begin=0&end=4 (192.168.144.137) 119.33ms
+[I 151224 02:23:54 web:1728] 200 GET /app/getlastmsg?begin=0&end=4 (192.168.144.137) 119.33ms
+[I 151224 02:25:11 getlastmsg:56] Traceback (most recent call last):
+      File "/home/wangchao/freyr/src/device_manager/handler/getlastmsg.py", line 45, in get
+        dic["msgid"]=item["msgid"]
+    KeyError: 'msgid'
+    
+[I 151224 02:25:11 getlastmsg:56] Traceback (most recent call last):
+      File "/home/wangchao/freyr/src/device_manager/handler/getlastmsg.py", line 45, in get
+        dic["msgid"]=item["msgid"]
+    KeyError: 'msgid'
+    
+[I 151224 02:25:11 web:1728] 200 GET /app/getlastmsg?begin=0&end=5 (192.168.144.137) 117.20ms
+[I 151224 02:25:11 web:1728] 200 GET /app/getlastmsg?begin=0&end=5 (192.168.144.137) 117.20ms
+[I 151224 02:27:24 web:1728] 200 GET /app/getlastmsg?begin=0&end=5 (192.168.144.137) 117.29ms
+[I 151224 02:27:24 web:1728] 200 GET /app/getlastmsg?begin=0&end=5 (192.168.144.137) 117.29ms
+[I 151224 02:28:11 web:1728] 200 GET /app/getlastmsg?begin=0&end=5 (192.168.144.137) 120.55ms
+[I 151224 02:28:11 web:1728] 200 GET /app/getlastmsg?begin=0&end=5 (192.168.144.137) 120.55ms
+[I 151224 02:28:28 web:1728] 200 GET /app/getlastmsg?begin=0&end=6 (192.168.144.137) 115.55ms
+[I 151224 02:28:28 web:1728] 200 GET /app/getlastmsg?begin=0&end=6 (192.168.144.137) 115.55ms
+[I 151224 03:32:20 web:1728] 304 GET /app/getlastmsg?begin=0&end=5 (192.168.144.137) 119.15ms
+[I 151224 03:32:20 web:1728] 304 GET /app/getlastmsg?begin=0&end=5 (192.168.144.137) 119.15ms
+[I 151224 03:32:22 web:1728] 304 GET /app/getlastmsg?begin=0&end=5 (192.168.144.137) 115.66ms
+[I 151224 03:32:22 web:1728] 304 GET /app/getlastmsg?begin=0&end=5 (192.168.144.137) 115.66ms
+[I 151224 03:32:25 web:1728] 304 GET /app/getlastmsg?begin=0&end=5 (192.168.144.137) 114.05ms
+[I 151224 03:32:25 web:1728] 304 GET /app/getlastmsg?begin=0&end=5 (192.168.144.137) 114.05ms
+[I 151224 03:32:29 web:1728] 200 GET /app/getlastmsg?begin=0&end=1 (192.168.144.137) 115.30ms
+[I 151224 03:32:29 web:1728] 200 GET /app/getlastmsg?begin=0&end=1 (192.168.144.137) 115.30ms
+[I 151224 03:32:37 web:1728] 200 GET /app/getlastmsg?begin=0&end=20 (192.168.144.137) 115.15ms
+[I 151224 03:32:37 web:1728] 200 GET /app/getlastmsg?begin=0&end=20 (192.168.144.137) 115.15ms
+[I 151224 03:32:47 web:1728] 200 GET /app/getlastmsg?begin=0&end=30 (192.168.144.137) 116.86ms
+[I 151224 03:32:47 web:1728] 200 GET /app/getlastmsg?begin=0&end=30 (192.168.144.137) 116.86ms
+[I 151224 03:47:12 web:1728] 200 GET /app/loadmsg?msgid=1 (192.168.144.137) 118.97ms
+[I 151224 03:47:12 web:1728] 200 GET /app/loadmsg?msgid=1 (192.168.144.137) 118.97ms
+[I 151224 03:47:17 web:1728] 200 GET /app/loadmsg?msgid=10 (192.168.144.137) 116.95ms
+[I 151224 03:47:17 web:1728] 200 GET /app/loadmsg?msgid=10 (192.168.144.137) 116.95ms
+[I 151224 09:32:50 regist_new:24] param is invalid
+[I 151224 09:32:50 regist_new:24] param is invalid
+[I 151224 09:32:50 web:1728] 200 POST /app/register (127.0.0.1) 123.10ms
+[I 151224 09:32:50 web:1728] 200 POST /app/register (127.0.0.1) 123.10ms
+[I 151224 09:55:54 regist_new:24] param is invalid
+[I 151224 09:55:54 regist_new:24] param is invalid
+[I 151224 09:55:54 regist_new:25] Traceback (most recent call last):
+      File "/home/wangchao/freyr/src/device_manager/handler/regist_new.py", line 19, in post
+        device_mgr.insert_device(device_info)
+      File "/home/wangchao/freyr/src/device_manager/dao/device.py", line 23, in insert_device
+        raise Exception("param is invalid")
+    Exception: param is invalid
+    
+[I 151224 09:55:54 regist_new:25] Traceback (most recent call last):
+      File "/home/wangchao/freyr/src/device_manager/handler/regist_new.py", line 19, in post
+        device_mgr.insert_device(device_info)
+      File "/home/wangchao/freyr/src/device_manager/dao/device.py", line 23, in insert_device
+        raise Exception("param is invalid")
+    Exception: param is invalid
+    
+[I 151224 09:55:54 web:1728] 200 POST /app/register (127.0.0.1) 121.71ms
+[I 151224 09:55:54 web:1728] 200 POST /app/register (127.0.0.1) 121.71ms
+[I 151224 09:57:13 regist_new:24] param is invalid
+[I 151224 09:57:13 regist_new:24] param is invalid
+[I 151224 09:57:13 regist_new:25] Traceback (most recent call last):
+      File "/home/wangchao/freyr/src/device_manager/handler/regist_new.py", line 19, in post
+        device_mgr.insert_device(device_info)
+      File "/home/wangchao/freyr/src/device_manager/dao/device.py", line 23, in insert_device
+        raise Exception("param is invalid")
+    Exception: param is invalid
+    
+[I 151224 09:57:13 regist_new:25] Traceback (most recent call last):
+      File "/home/wangchao/freyr/src/device_manager/handler/regist_new.py", line 19, in post
+        device_mgr.insert_device(device_info)
+      File "/home/wangchao/freyr/src/device_manager/dao/device.py", line 23, in insert_device
+        raise Exception("param is invalid")
+    Exception: param is invalid
+    
+[I 151224 09:57:13 web:1728] 200 POST /app/register (127.0.0.1) 133.81ms
+[I 151224 09:57:13 web:1728] 200 POST /app/register (127.0.0.1) 133.81ms
+[I 151224 09:58:26 regist_new:24] param is invalid
+[I 151224 09:58:26 regist_new:24] param is invalid
+[I 151224 09:58:26 regist_new:25] Traceback (most recent call last):
+      File "/home/wangchao/freyr/src/device_manager/handler/regist_new.py", line 19, in post
+        device_mgr.insert_device(device_info)
+      File "/home/wangchao/freyr/src/device_manager/dao/device.py", line 23, in insert_device
+        raise Exception("param is invalid")
+    Exception: param is invalid
+    
+[I 151224 09:58:26 regist_new:25] Traceback (most recent call last):
+      File "/home/wangchao/freyr/src/device_manager/handler/regist_new.py", line 19, in post
+        device_mgr.insert_device(device_info)
+      File "/home/wangchao/freyr/src/device_manager/dao/device.py", line 23, in insert_device
+        raise Exception("param is invalid")
+    Exception: param is invalid
+    
+[I 151224 09:58:26 web:1728] 200 POST /app/register (127.0.0.1) 121.76ms
+[I 151224 09:58:26 web:1728] 200 POST /app/register (127.0.0.1) 121.76ms
+[I 151224 09:59:36 web:1728] 200 POST /app/register (127.0.0.1) 120.11ms
+[I 151224 09:59:36 web:1728] 200 POST /app/register (127.0.0.1) 120.11ms
+[I 151224 10:02:09 regist_new:24] E11000 duplicate key error index: xv.ios_device.$_id_ dup key: { : "38db0bd8f2ff3e8274957d49b0ae21e5c74fd65a06cae0d2d10b0a0ff2caaf5f" }
+[I 151224 10:02:09 regist_new:24] E11000 duplicate key error index: xv.ios_device.$_id_ dup key: { : "38db0bd8f2ff3e8274957d49b0ae21e5c74fd65a06cae0d2d10b0a0ff2caaf5f" }
+[I 151224 10:02:09 regist_new:25] Traceback (most recent call last):
+      File "/home/wangchao/freyr/src/device_manager/handler/regist_new.py", line 19, in post
+        device_mgr.insert_device(device_info)
+      File "/home/wangchao/freyr/src/device_manager/dao/device.py", line 32, in insert_device
+        return self._client_conn[self._table].insert(data)
+      File "/usr/local/lib/python2.7/site-packages/pymongo/collection.py", line 1926, in insert
+        check_keys, manipulate, write_concern)
+      File "/usr/local/lib/python2.7/site-packages/pymongo/collection.py", line 431, in _insert
+        _check_write_command_response(results)
+      File "/usr/local/lib/python2.7/site-packages/pymongo/helpers.py", line 260, in _check_write_command_response
+        raise DuplicateKeyError(error.get("errmsg"), 11000, error)
+    DuplicateKeyError: E11000 duplicate key error index: xv.ios_device.$_id_ dup key: { : "38db0bd8f2ff3e8274957d49b0ae21e5c74fd65a06cae0d2d10b0a0ff2caaf5f" }
+    
+[I 151224 10:02:09 regist_new:25] Traceback (most recent call last):
+      File "/home/wangchao/freyr/src/device_manager/handler/regist_new.py", line 19, in post
+        device_mgr.insert_device(device_info)
+      File "/home/wangchao/freyr/src/device_manager/dao/device.py", line 32, in insert_device
+        return self._client_conn[self._table].insert(data)
+      File "/usr/local/lib/python2.7/site-packages/pymongo/collection.py", line 1926, in insert
+        check_keys, manipulate, write_concern)
+      File "/usr/local/lib/python2.7/site-packages/pymongo/collection.py", line 431, in _insert
+        _check_write_command_response(results)
+      File "/usr/local/lib/python2.7/site-packages/pymongo/helpers.py", line 260, in _check_write_command_response
+        raise DuplicateKeyError(error.get("errmsg"), 11000, error)
+    DuplicateKeyError: E11000 duplicate key error index: xv.ios_device.$_id_ dup key: { : "38db0bd8f2ff3e8274957d49b0ae21e5c74fd65a06cae0d2d10b0a0ff2caaf5f" }
+    
+[I 151224 10:02:09 web:1728] 200 POST /app/register (127.0.0.1) 138.92ms
+[I 151224 10:02:09 web:1728] 200 POST /app/register (127.0.0.1) 138.92ms
+[I 151224 10:04:34 web:1728] 200 POST /service/del_token (127.0.0.1) 122.76ms
+[I 151224 10:04:34 web:1728] 200 POST /service/del_token (127.0.0.1) 122.76ms

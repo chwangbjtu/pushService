@@ -1,0 +1,290 @@
+#include<stdlib.h>
+#include <fcntl.h>
+#include<string.h>
+#include<errno.h>
+#include<sys/types.h>
+#include<sys/socket.h>
+#include<netinet/in.h>
+#include <iostream>
+
+#include <arpa/inet.h>
+#include <unistd.h>
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <time.h>
+#include <stdlib.h>
+
+#include <pthread.h>
+#include <sys/time.h>
+#include <vector>
+#include <map>
+
+//g++ main.cpp -lpthread
+
+using namespace std;
+
+stringstream ss;
+//string g = "{\"fudid\":\"782BCBA20961\",\"mac\":\"782BCBA20961\",\"version\":\"1.2.3.4\",\"last_msg_id\":\"0\"}"
+string gb = "{\"fudid\":\"";//782BCBA20961
+string ge = "\",\"mac\":\"782BCBA20961\",\"version\":\"1.2.3.4\",\"last_msg_id\":\"0\",\"last_push_id\":\"0\",\"app_name\":\"aphone\"}";
+vector<string> loginmsg;
+vector<string> htbtmsg;
+vector<string> pushmsg;
+vector<int> recvmsgid;
+
+#pragma pack(1)
+class header
+{
+public:
+	unsigned short _version;
+	unsigned short _type;
+	unsigned int _length;
+};
+
+class rresp
+{
+public:
+    unsigned short _version;
+    unsigned short _type;
+    unsigned int _length;
+	unsigned int _msgid;
+};
+
+#pragma pack()
+
+int init()
+{
+for(int i=0;i<5;i++)
+{
+	ss<<gb<<i<<ge;
+	string str;
+	//str.resize(8);
+	str.assign(sizeof(header),'\0');
+	header * ph = (header *)str.data();
+	ph->_version = htons(1);
+	ph->_type = htons(1);
+	//string tstr;
+	//tstr = str.str();
+	ph->_length = htonl(ss.str().size());
+	str.append(ss.str());
+	cout<<__LINE__<<":"<<ss.str().size()<<":"<<str.size()<<endl;
+	ss.str("");
+	loginmsg.push_back(str);
+
+	string shtbt;
+	//shtbt.resize(8);
+	shtbt.assign(sizeof(header),'\0');
+	header * ph1 = (header *)shtbt.data();
+	ph1->_version = htons(1);
+    ph1->_type = htons(2);
+    ph1->_length = 0;
+	htbtmsg.push_back(shtbt);
+
+	string spush_resp;
+	spush_resp.assign(sizeof(rresp),'\0');
+	rresp * pp = (rresp *)spush_resp.data();
+    pp->_version = htons(1);
+    pp->_type = htons(3);
+    pp->_length = htonl(4);
+    pp->_msgid = htonl(123);
+	
+    pushmsg.push_back(spush_resp);
+
+	recvmsgid.push_back(-1);
+	
+}
+}
+
+vector<int> fds;
+
+int send_msg(int fd,string& msg)
+{
+	cout<<__LINE__<<endl;	
+	int size = 0;
+	int n =  send(fd,msg.data(),msg.size(),0);
+	size = n;
+	while( size < msg.size())
+	{
+		if ( n == 0)
+			return 0;
+		else if ( n < 0)
+			;
+		else if ( size > 0 )
+			size += n;
+
+		n =  send(fd,msg.data(),msg.size(),0);
+	}
+	cout<<__LINE__<<endl;	
+	return 0;
+}
+
+int recv_msg(int fd,string& msg)
+{
+	cout<<__LINE__<<":"<<fd<<endl;
+	int n = 0;
+	const int BUF_LEN = 1024;
+    char buf[BUF_LEN] = {0};
+    ssize_t recv_len = 0;
+    while((recv_len = recv(fd, buf, BUF_LEN, 0)) > 0)
+    {
+        msg.append(buf, recv_len);
+		cout<<__LINE__<<fd<<":"<<msg.size()<<":"<<recv_len<<endl;
+		break;
+    }
+    if(recv_len < 0 && (errno != EAGAIN && errno != EWOULDBLOCK))
+    {
+        return -1;
+    }
+    else if(recv_len == 0)
+    {
+        return -1;
+    }
+	cout<<__LINE__<<fd<<":"<<msg.size()<<endl;
+	return 0;
+}
+
+int open_fd(unsigned int ip, unsigned short port)
+{
+	cout<<__LINE__<<endl;
+	int sockfd;
+    struct sockaddr_in dest_addr; //destnation ip info
+
+    if(-1==(sockfd=socket(AF_INET,SOCK_STREAM,0)))
+    {
+    	cout<<"create error"<<endl;
+        return -1;
+    }
+	/*
+	int opts = fcntl(sockfd, F_GETFL);
+    if(opts < 0)
+        return -1;
+    opts = opts | O_NONBLOCK;
+	cout<<__LINE__<<endl;
+    if(fcntl(sockfd, F_SETFL, opts) < 0)
+        return -1;
+	*/
+
+	cout<<__LINE__<<":"<<sockfd<<endl;
+    dest_addr.sin_family = AF_INET;
+    dest_addr.sin_addr.s_addr = ip;
+    dest_addr.sin_port = port;
+
+	cout<<__LINE__<<":"<<ip<<":"<<port<<endl;
+
+    if(-1 == connect(sockfd,(struct sockaddr*)&dest_addr,sizeof(struct sockaddr)))
+    {
+    	cout<<"connect error"<<endl;
+        return -1;
+    }
+	cout<<__LINE__<<endl;
+
+	return sockfd;
+}
+
+int gopen_fd(int num,unsigned int ip,unsigned short port)
+{
+	cout<<__LINE__<<endl;
+	for(int i=0;i<num;i++)
+	{
+		cout<<__LINE__<<endl;
+		int fd = open_fd(ip,port);
+		if ( fd > 0)
+		{
+			cout<<__LINE__<<":"<<fd<<endl;
+			fds.push_back(fd);
+		}
+	}
+	return 0;
+}
+
+int gsend_msg()
+{
+	for(int i=0;i<fds.size();i++)
+	{
+		string tmsg;
+		send_msg(fds[i],tmsg);
+	}
+	return 0;
+}
+
+int grecv_msg()
+{
+	string msg;
+	for(int i=0;i<fds.size();i++)
+    {
+		msg = "";
+        recv_msg(fds[i],msg);
+		//cout<<"fd:"<<fds[i]<<":index:"<<i<<":msg:"<<msg<<endl;
+		cout<<__LINE__<<endl;
+		header * ph = (header*)(msg.data());
+		cout<<__LINE__<<":"<<ntohl(ph->_length) + 8<<":"<<msg.size()<<endl;
+		if ( ntohl(ph->_length) + 8 >= msg.size())
+		{
+			cout<<__LINE__<<":fd:"<<fds[i]<<":index:"<<i<<":msg:"<<ntohs(ph->_type)<<":"<<ntohs(ph->_version)<<endl;
+			cout<<__LINE__<<":fd:"<<fds[i]<<":index:"<<i<<":msg:"<<msg<<endl;
+		}
+		else
+		{
+			cout<<__LINE__<<":fd:"<<fds[i]<<":index:"<<i<<":msg:"<<ntohs(ph->_type)<<":"<<ntohs(ph->_version)<<endl;
+			cout<<__LINE__<<":fd:"<<fds[i]<<":index:"<<i<<":msg:"<<msg<<endl;
+			ph = (header*)(msg.data()+sizeof(header));
+			cout<<__LINE__<<":"<<ntohs(ph->_type)<<":"<<0x0f03<<endl;
+			if ( ntohs(ph->_type) == 0x0f03)
+    	    {
+        	    cout<<__LINE__<<":fd:"<<fds[i]<<":index:"<<i<<":msg:"<<msg<<endl;
+				recvmsgid[i] = 1;
+	        }
+		}
+    }
+    return 0;
+}
+
+//a.out ip port threadnum
+int main(int argc,char**argv)
+{
+        if ( argc != 4)
+        {
+                cout<<"a.out ip port clientnum"<<endl;
+                return -1;
+        }
+
+		unsigned int ip;
+		unsigned short port;
+
+        in_addr ipaddr1;
+        memset(&ipaddr1,0,sizeof(ipaddr1));
+        if(inet_pton(AF_INET,argv[1],(struct in_addr*)&ipaddr1)>0)
+        {   
+                ip = ipaddr1.s_addr;
+        }
+
+        port = htons(atoi(argv[2]));
+        int client_num = atoi(argv[3]);
+
+		init();
+
+		gopen_fd(client_num,ip,port);
+		cout<<"open fd num:"<<fds.size()<<endl;
+		int j = 0;
+        while(1)
+        {
+				for(int i=0;i<fds.size();i++)
+				{
+					cout<<__LINE__<<":"<<fds[i]<<endl;
+					send_msg(fds[i],loginmsg[i]);
+					send_msg(fds[i],loginmsg[i]);
+					cout<<__LINE__<<":"<<fds[i]<<endl;
+                    sleep(20000);
+				    grecv_msg();
+					cout<<__LINE__<<"sleep 12 :"<<fds[i]<<endl;
+					send_msg(fds[i],loginmsg[i]);
+					cout<<__LINE__<<":"<<fds[i]<<endl;
+				}
+
+				grecv_msg();
+				sleep(1);
+        }
+
+        return 0;
+}

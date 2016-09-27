@@ -1,0 +1,360 @@
+#include<stdlib.h>
+#include <fcntl.h>
+#include<string.h>
+#include<errno.h>
+#include<sys/types.h>
+#include<sys/socket.h>
+#include<netinet/in.h>
+#include <iostream>
+
+#include <arpa/inet.h>
+#include <unistd.h>
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <time.h>
+#include <stdlib.h>
+
+#include <pthread.h>
+#include <sys/time.h>
+#include <vector>
+#include <map>
+
+#include "json/json.h"
+#include "dbg.h"
+
+//g++ main.cpp -lpthread
+
+using namespace std;
+
+stringstream ss;
+//string g = "{\"fudid\":\"782BCBA20961\",\"mac\":\"782BCBA20961\",\"version\":\"1.2.3.4\",\"last_msg_id\":\"0\"}"
+string gb = "{\"fudid\":\"";//782BCBA20961
+string ge = "\",\"mac\":\"782BCBA20961\",\"version\":\"1.2.3.4\",\"last_msg_id\":\"0\"}";
+vector<string> loginmsg;
+vector<string> htbtmsg;
+vector<string> pushmsg;
+vector<string> recvmsgid;
+
+#pragma pack(1)
+class header
+{
+public:
+	unsigned short _version;
+	unsigned short _type;
+	unsigned int _length;
+};
+
+string gmsgid;
+
+class rresp
+{
+public:
+    unsigned short _version;
+    unsigned short _type;
+    unsigned int _length;
+	unsigned int _msgid;
+};
+
+#pragma pack()
+
+string get_msg(string type,int i)
+{
+    string str;
+    str.assign(sizeof(header),'\0');
+    header * ph = (header *)str.data();
+    ph->_version = htons(1);
+    if( type == "login")
+    {
+        ph->_type = htons(1);
+        stringstream ss;
+        ss<<gb<<i<<ge;
+        ph->_length = htonl(ss.str().size());
+        str.append(ss.str());
+    }
+    else if( type == "htbt")
+    {
+        ph->_type = htons(2);
+        ph->_length = 0;
+    }
+    else if ( type == "push")
+    {
+        str = "";
+        str.assign(sizeof(rresp),'\0');
+        rresp * ph = (rresp *)str.data();
+        ph->_version = htons(1);
+        ph->_type = htons(3);
+        ph->_length = htonl(4);
+        ph->_msgid = htonl(atoi(gmsgid.data()));
+        recvmsgid[i] = "";
+    }
+
+    return str;
+}
+
+vector<int> fds;
+
+int send_msg(int fd,string& msg)
+{
+	cout<<__LINE__<<endl;	
+	int size = 0;
+	int n =  send(fd,msg.data(),msg.size(),0);
+	size = n;
+	while( size < msg.size())
+	{
+		if ( n == 0)
+			return 0;
+		else if ( n < 0)
+			;
+		else if ( size > 0 )
+			size += n;
+
+		n =  send(fd,msg.data(),msg.size(),0);
+	}
+	cout<<__LINE__<<endl;	
+	return 0;
+}
+
+int recv_msg(int fd,string& msg)
+{
+	cout<<__LINE__<<":"<<fd<<endl;
+	int n = 0;
+	const int BUF_LEN = 1024;
+    char buf[BUF_LEN] = {0};
+    ssize_t recv_len = 0;
+    while((recv_len = recv(fd, buf, BUF_LEN, 0)) > 0)
+    {
+        msg.append(buf, recv_len);
+		cout<<__LINE__<<fd<<":"<<msg.size()<<":"<<recv_len<<endl;
+		break;
+    }
+    if(recv_len < 0 && (errno != EAGAIN && errno != EWOULDBLOCK))
+    {
+        return -1;
+    }
+    else if(recv_len == 0)
+    {
+        return -1;
+    }
+	cout<<__LINE__<<fd<<":"<<msg.size()<<endl;
+	return 0;
+}
+
+int open_fd(unsigned int ip, unsigned short port)
+{
+	cout<<__LINE__<<endl;
+	int sockfd = -1;
+    struct sockaddr_in dest_addr; //destnation ip info
+
+    if(-1==(sockfd=socket(AF_INET,SOCK_STREAM,0)))
+    {
+    	cout<<"create error"<<endl;
+        return -1;
+    }
+	
+	int opts = fcntl(sockfd, F_GETFL);
+    if(opts < 0)
+        return -1;
+    opts = opts | O_NONBLOCK;
+    if(fcntl(sockfd, F_SETFL, opts) < 0)
+        return -1;
+	
+
+    dest_addr.sin_family = AF_INET;
+    dest_addr.sin_addr.s_addr = ip;
+    dest_addr.sin_port = port;
+
+    DBG_INFO("%u,%d",ip,port);
+    int err = connect(sockfd,(struct sockaddr*)&dest_addr,sizeof(struct sockaddr));
+
+    if(err != 0)
+    {
+        if(errno != EINPROGRESS && errno != EALREADY)
+        {
+            DBG_ERROR("connect error");
+            close(sockfd);
+            return -1;
+        }
+    }
+	cout<<__LINE__<<endl;
+
+	return sockfd;
+}
+
+int gopen_fd(int num,unsigned int ip,unsigned short port)
+{
+	cout<<__LINE__<<endl;
+	for(int i=0;i<num;i++)
+	{
+		int fd = open_fd(ip,port);
+		if ( fd > 0)
+		{
+			fds.push_back(fd);
+		}
+	}
+	return 0;
+}
+
+int gsend_msg()
+{
+	for(int i=0;i<fds.size();i++)
+	{
+		string tmsg;
+		send_msg(fds[i],tmsg);
+	}
+	return 0;
+}
+
+int grecv_msg()
+{
+	string msg;
+	for(int i=0;i<fds.size();i++)
+    {
+        DBG_INFO("recv msg");
+		msg = "";
+        recv_msg(fds[i],msg);
+		header * ph = (header*)(msg.data());
+		if ( ntohl(ph->_length) + 8 >= msg.size())
+		{
+			//cout<<__LINE__<<":fd:"<<fds[i]<<":index:"<<i<<":msg:"<<ntohs(ph->_type)<<":"<<ntohs(ph->_version)<<endl;
+			//cout<<__LINE__<<":fd:"<<fds[i]<<":index:"<<i<<":msg:"<<msg<<endl;
+			DBG_INFO("recv size:%d,length :%d",msg.size(),ntohl(ph->_length) + 8);
+		}
+		else
+		{
+			//cout<<__LINE__<<":fd:"<<fds[i]<<":index:"<<i<<":msg:"<<ntohs(ph->_type)<<":"<<ntohs(ph->_version)<<endl;
+			//cout<<__LINE__<<":fd:"<<fds[i]<<":index:"<<i<<":msg:"<<msg<<endl;
+			char * pd = (char *)(msg.data());
+            int offset = 0;
+			while(true)
+            {
+			    ph = (header*)(pd + offset);
+                int len = ntohl(ph->_length) + offset + 8;
+                if (  ntohs(ph->_type) == 0x0f03)
+                {
+                    DBG_INFO("recv push:%s",pd+8);
+                    string tstr = msg.substr(pd+offset+8,msg.size()-offset-8);
+                    Json::Reader reader;
+                    Json::Value value;
+                    if (  reader.parse(tstr,value))
+                    {
+                         gmsgid = value["msg_id"].asString();
+                        DBG_INFO("msgid is : %s",gmsgid.data());
+                        recvmsgid[i] = gmsgid;
+                    }
+                }
+                else if ( ntohs(ph->_type) == 0x0f01)
+                {
+                    DBG_INFO("recv login resp");
+                }
+                else if( ntohs(ph->_type) == 0x0f02)
+                {
+                    DBG_INFO("recv htbt resp");
+                }
+
+                offset += ( 8 + ntohl(ph->_length));
+                if ( offset >= msg.size())
+                    break;
+            }
+			ph = (header*)(msg.data()+sizeof(header));
+			//cout<<__LINE__<<":"<<ntohs(ph->_type)<<":"<<0x0f03<<endl;
+			if ( ntohs(ph->_type) == 0x0f03)
+    	    {
+                DBG_INFO("%d,%s",msg.size(),msg.data()+15);
+                for(int k=0;k<msg.size();k++)
+                {
+                    printf("%x,",msg[k]);
+                }
+                cout<<endl;
+			    string tstr = msg.substr(8,msg.size()-8);
+                DBG_INFO("recv push %s",tstr.data());
+                Json::Reader reader;
+                Json::Value value;
+                if (  reader.parse(tstr,value))
+                {
+                    gmsgid = value["msg_id"].asString();
+                    DBG_INFO("msgid is : %s",gmsgid.data());
+				    recvmsgid[i] = gmsgid;
+                }
+        	    //cout<<__LINE__<<":fd:"<<fds[i]<<":index:"<<i<<":msg:"<<msg<<endl;
+	        }
+            else if ( ntohs(ph->_type) == 0x0f01)
+            {
+               DBG_INFO("recv login resp"); 
+            }
+            else if ( ntohs(ph->_type) == 0x0f02)
+            {
+               DBG_INFO("recv htbt resp"); 
+            }
+		}
+    }
+    return 0;
+}
+
+//a.out ip port threadnum
+int main(int argc,char**argv)
+{
+        if ( argc != 4)
+        {
+                cout<<"a.out ip port clientnum"<<endl;
+                return -1;
+        }
+
+		unsigned int ip;
+		unsigned short port;
+
+        in_addr ipaddr1;
+        memset(&ipaddr1,0,sizeof(ipaddr1));
+        if(inet_pton(AF_INET,argv[1],(struct in_addr*)&ipaddr1)>0)
+        {   
+                ip = ipaddr1.s_addr;
+        }
+
+        port = htons(atoi(argv[2]));
+        int client_num = atoi(argv[3]);
+
+
+		gopen_fd(client_num,ip,port);
+		cout<<"open fd num:"<<fds.size()<<endl;
+        for(int i=0;i<fds.size();i++)
+        {
+            recvmsgid.push_back("");
+        }
+		int j = 0;
+        while(1)
+        {
+				for(int i=0;i<fds.size();i++)
+				{
+                    string msg;
+
+					if ( j == 0)
+                    {
+                        DBG_INFO("");
+                        msg = get_msg("login",i);
+						send_msg(fds[i],msg);
+                        DBG_INFO("login end");
+				        j++;
+                    }
+					else
+					{
+						if ( recvmsgid[i].size() == 0)
+						{
+                            DBG_INFO("htbt %d",i);
+                            msg = get_msg("htbt",i);
+							send_msg(fds[i],msg);
+						}
+						else
+						{
+                            DBG_INFO("push");
+                            msg = get_msg("push",i);
+							send_msg(fds[i],msg);
+							recvmsgid[i] = "";
+						}
+					}
+					grecv_msg();
+				}
+                sleep(5);
+        }
+
+        return 0;
+}
